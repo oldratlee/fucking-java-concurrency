@@ -7,16 +7,13 @@ public class InconsistentReadDemo {
     int count = 1;
 
     public static void main(String[] args) {
-//        LoadMaker.makeLoad();
-//        LoadMaker.sleep(3 * 1000);
+        InconsistentReadDemo demo = new InconsistentReadDemo();
 
-        InconsistentReadDemo t = new InconsistentReadDemo();
-
-        Thread thread = new Thread(t.getConcurrencyCheckTask());
+        Thread thread = new Thread(demo.getConcurrencyCheckTask());
         thread.start();
 
         while (true) {
-            t.count++;
+            demo.count++;
         }
     }
 
@@ -29,6 +26,7 @@ public class InconsistentReadDemo {
         public void run() {
             int c = 0;
             for (int i = 0; ; i++) {
+                // 在同一线程连读2次
                 int c1 = count;
                 int c2 = count;
                 if (c1 != c2) {

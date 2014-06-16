@@ -11,14 +11,14 @@ public class NoPublishDemo {
     public static void main(String[] args) {
         // LoadMaker.makeLoad();
 
-        NoPublishDemo t = new NoPublishDemo();
+        NoPublishDemo demo = new NoPublishDemo();
 
-        Thread thread = new Thread(t.getConcurrencyCheckTask());
+        Thread thread = new Thread(demo.getConcurrencyCheckTask());
         thread.start();
 
         Utils.sleep(1000);
         System.out.println("Set stop to true in main!");
-        t.stop = true;
+        demo.stop = true;
         System.out.println("Exit main.");
     }
 

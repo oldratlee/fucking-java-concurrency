@@ -9,14 +9,14 @@ public class InvalidLongDemo {
     public static void main(String[] args) {
         // LoadMaker.makeLoad();
 
-        InvalidLongDemo t = new InvalidLongDemo();
+        InvalidLongDemo demo = new InvalidLongDemo();
 
-        Thread thread = new Thread(t.getConcurrencyCheckTask());
+        Thread thread = new Thread(demo.getConcurrencyCheckTask());
         thread.start();
 
         for (int i = 0; ; i++) {
             long l = i;
-            t.count = l << 32 | l;
+            demo.count = l << 32 | l;
         }
     }
 
@@ -38,7 +38,7 @@ public class InvalidLongDemo {
                             i + 1, c, (float) c / (i + 1) * 100, high, low);
                 } else {
                     // 如果去掉这个输出，则在我的开发机上没有观察到invalid long
-                    System.out.printf("%s|%s\n", high, low);
+                    System.out.printf("Emm... %s|%s\n", high, low);
                 }
             }
         }

@@ -12,35 +12,33 @@ public class HashMapHangDemo {
     final Map<Integer, Object> holder = new HashMap<Integer, Object>();
 
     public static void main(String[] args) {
-        // LoadMaker.makeLoad();
-
-        HashMapHangDemo t = new HashMapHangDemo();
+        HashMapHangDemo demo = new HashMapHangDemo();
         for (int i = 0; i < 100; i++) {
-            t.holder.put(i, null);
+            demo.holder.put(i, null);
         }
 
-        Thread thread = new Thread(t.getConcurrencyCheckTask());
+        Thread thread = new Thread(demo.getConcurrencyCheckTask());
         thread.start();
-        thread = new Thread(t.getConcurrencyCheckTask());
+        thread = new Thread(demo.getConcurrencyCheckTask());
         thread.start();
 
         System.out.println("Start get in main!");
         for (int i = 0; ; ++i) {
             for (int j = 0; j < 10000; ++j) {
-                t.holder.get(j);
+                demo.holder.get(j);
 
                 // 如果出现hashmap的get hang住问题，则下面的输出就不会再出现了。
                 // 在我的开发机上，很容易在第一轮就观察到这个问题。
-                System.out.printf("get key %s in round %s\n", j, i);
+                System.out.printf("Got key %s in round %s\n", j, i);
             }
         }
     }
 
-    ConcurrencyCheckTask getConcurrencyCheckTask() {
-        return new ConcurrencyCheckTask();
+    ConcurrencyTask getConcurrencyCheckTask() {
+        return new ConcurrencyTask();
     }
 
-    private class ConcurrencyCheckTask implements Runnable {
+    private class ConcurrencyTask implements Runnable {
         Random random = new Random();
 
         @Override
