@@ -34,7 +34,7 @@ public class NoPublishDemo {
         public void run() {
             System.out.println("ConcurrencyCheckTask started!");
             // 如果主线中stop的值可见，则循环会退出。
-            // 在我的开发机上，几乎必现循环不退出！（解法：在running属性上加上volatile）
+            // 在我的开发机上，几乎必现循环不退出！（简单安全的解法：在running属性上加上volatile）
             while (!stop) {
             }
             System.out.println("ConcurrencyCheckTask stopped!");

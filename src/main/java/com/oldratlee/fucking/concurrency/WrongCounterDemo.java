@@ -22,7 +22,7 @@ public class WrongCounterDemo {
 
         int finalCounter = demo.counter;
         if (finalCounter != INC_COUNT * 2) {
-            // 在我的开发机上，几乎必现！即使counter上加了volatile。
+            // 在我的开发机上，几乎必现！即使counter上加了volatile。（简单安全的解法：使用AtomicInteger）
             System.err.printf("Fuck! Got wrong count!! expected: %s, actual %s", INC_COUNT * 2, finalCounter);
         } else {
             System.out.println("Wow... Got right count!");

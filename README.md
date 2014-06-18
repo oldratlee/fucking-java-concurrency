@@ -1,9 +1,9 @@
 fucking-java-concurrency
 ==========================
 
-:point_right: 通过Demo演示出`Java`中并发问题。
-
-可以观察到的实际现象 :see_no_evil: 比 说说的并发原则 :speak_no_evil: 更直观更可信。
+:point_right: 通过Demo演示出`Java`中并发问题。     
+可以观察到的实际现象 :see_no_evil: 比 说说的并发原则 :speak_no_evil: 更直观更可信。  
+\# 这里给Demo没有解释和讨论，可以参见[并发方面的系统的资料](ConcurrencyMaterial.md)。
 
 :beer: 无同步的修改在另一个线程中读不到
 ----------------------------------
