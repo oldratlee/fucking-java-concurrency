@@ -1,7 +1,7 @@
 package com.oldratlee.fucking.concurrency;
 
 /**
- * @author ding.lid
+ * @author Jerry Lee (oldratlee at gmail dot com)
  */
 public class WrongCounterDemo {
     private static final int INC_COUNT = 100000000;
@@ -20,10 +20,11 @@ public class WrongCounterDemo {
         thread1.join();
         thread2.join();
 
-        int finalCounter = demo.counter;
-        if (finalCounter != INC_COUNT * 2) {
+        int actualCounter = demo.counter;
+        int expectedCount = INC_COUNT * 2;
+        if (actualCounter != expectedCount) {
             // 在我的开发机上，几乎必现！即使counter上加了volatile。（简单安全的解法：使用AtomicInteger）
-            System.err.printf("Fuck! Got wrong count!! expected: %s, actual %s", INC_COUNT * 2, finalCounter);
+            System.err.printf("Fuck! Got wrong count!! actual %s, expected: %s.", actualCounter, expectedCount);
         } else {
             System.out.println("Wow... Got right count!");
         }

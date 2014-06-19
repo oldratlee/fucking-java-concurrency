@@ -1,7 +1,7 @@
 package com.oldratlee.fucking.concurrency;
 
 /**
- * @author ding.lid
+ * @author Jerry Lee (oldratlee at gmail dot com)
  */
 public class InconsistentReadDemo {
     int count = 1;

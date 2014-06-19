@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Random;
 
 /**
- * @author ding.lid
+ * @author Jerry Lee (oldratlee at gmail dot com)
  * @see <a href="http://coolshell.cn/articles/9606.html">Java HashMap的死循环</a>@<a href="http://weibo.com/haoel">左耳朵耗子</a>
  */
 public class HashMapHangDemo {

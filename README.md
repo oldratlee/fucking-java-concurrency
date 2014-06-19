@@ -82,3 +82,24 @@ Demo类[`com.oldratlee.fucking.concurrency.WrongCounterDemo`](src/main/java/com/
 ```bash
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.WrongCounterDemo
 ```
+
+:beer: 在易变域上的同步
+-------------------------
+
+常看到在易变域上的同步代码，并且写的同学会很自然觉得这样是安全和正确的。      
+\# 问题分析见文章链接：[在易变域上的同步](http://www.ibm.com/developerworks/cn/java/j-concurrencybugpatterns/#N100DA)，对应的英文文章：[Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N100E7)    
+Demo类[`com.oldratlee.fucking.concurrency.SynchronizationOnMutableFieldDemo`](src/main/java/com/oldratlee/fucking/concurrency/SynchronizationOnMutableFieldDemo.java)。
+
+### Demo说明
+
+主线程中开启2个任务线程执行`addListener`。主线程最终结果检查。
+
+### 问题说明
+
+最终`Listener`的个数不对。
+
+### 快速运行
+
+```bash
+mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.SynchronizationOnMutableFieldDemo
+```
