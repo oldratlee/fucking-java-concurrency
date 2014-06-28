@@ -106,3 +106,23 @@ Demo类[`com.oldratlee.fucking.concurrency.SynchronizationOnMutableFieldDemo`](s
 ```bash
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.SynchronizationOnMutableFieldDemo
 ```
+
+:beer: 对称锁死锁
+-------------------------
+
+\# 问题分析见文章链接：[对称锁死锁](http://www.ibm.com/developerworks/cn/java/j-concurrencybugpatterns/#N101B4)，对应的英文文章：[Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N101C1)    
+Demo类[`com.oldratlee.fucking.concurrency.SymmetricLockDeadlockDemo`](src/main/java/com/oldratlee/fucking/concurrency/SymmetricLockDeadlockDemo.java)。
+
+### Demo说明
+
+主线程中开启2个任务线程执行。
+
+### 问题说明
+
+任务线程死锁。
+
+### 快速运行
+
+```bash
+mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.SymmetricLockDeadlockDemo
+```
