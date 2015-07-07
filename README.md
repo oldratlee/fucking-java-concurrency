@@ -2,13 +2,15 @@ fucking-java-concurrency
 ==========================
 
 :point_right: 通过Demo演示出`Java`中并发问题。
-   
-可以观察到的实际现象 :see_no_evil: 比 说说的并发原则 :speak_no_evil: 更直观更可信。
 
-`Java`语言标准库支持线程，语言本身（如`GC`）以及应用（服务器端`The Server side`）中会重度使用多线程。
+### 整理Demo的原因
 
-并发程度设计在分析和实现中，复杂度大大增加。如果不系统理解和充分分析并发逻辑，随意写代码，这样的程序用 **『碰巧』** 能运行出正确结果 来形容一点都不为过。  
-\# 这里的Demo没有给出解释和讨论，要深入了解请参见[并发方面的系统的资料](ConcurrencyMaterial.md)。
+- 可以观察到的实际现象 :see_no_evil: 比 说说的并发原则 :speak_no_evil: 更直观更可信。
+- `Java`语言标准库支持线程，语言本身（如`GC`）以及应用（服务器端`The Server side`）中会重度使用多线程。
+- 并发程度设计在分析和实现中，复杂度大大增加。
+    如果不系统理解和充分分析并发逻辑，随意写代码，这样的程序用 **『碰巧』** 能运行出正确结果 来形容一点都不为过。
+
+这里的Demo没有给出解释和讨论，要深入了解请参见[并发方面的系统的资料](ConcurrencyMaterial.md)。
 
 你在开发中碰到的并发问题的例子，欢迎提供（[提交Issue](https://github.com/oldratlee/fucking-java-concurrency/issues))和分享（[Fork后提交代码](https://github.com/oldratlee/fucking-java-concurrency/fork)）！ :kissing_heart:
 
