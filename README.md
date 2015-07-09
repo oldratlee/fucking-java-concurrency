@@ -3,7 +3,7 @@ fucking-java-concurrency
 
 :point_right: 通过Demo演示出`Java`中并发问题。
 
-### 整理Demo的原因
+**整理Demo的原因：**
 
 - 可以观察到的实际现象 :see_no_evil: 比 说说的并发原则 :speak_no_evil: 更直观更可信。
 - `Java`语言标准库支持线程，语言本身（如`GC`）以及应用（服务器端`The Server side`）中会重度使用多线程。
@@ -141,3 +141,5 @@ mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.Symmetr
 - [Java Concurrency Gotchas](http://www.slideshare.net/alexmiller/java-concurrency-gotchas-3666977)
 - [Common problems of concurrency (Multi-Threading) in Java](http://www.somanyword.com/2014/03/common-problems-of-concurrency-multi-threading-in-java/)
 - [java tutorial - Concurrency](http://docs.oracle.com/javase/tutorial/essential/concurrency/index.html)
+
+要深入了解请参见[并发方面的系统的资料](ConcurrencyMaterial.md)。

@@ -10,6 +10,8 @@ Java
 推荐先看这本，更实用，并且有`Java 5`的内容。
 - [Java并发编程](http://book.douban.com/subject/1244021/)
 
+更多参见个人整理并发书籍豆列： [Concurrency/Parallelism](http://www.douban.com/doulist/41916951/)
+
 网站资料
 --------------------
 
