@@ -14,7 +14,7 @@ fucking-java-concurrency
 
 你在开发中碰到的并发问题的例子，欢迎提供（[提交Issue](https://github.com/oldratlee/fucking-java-concurrency/issues))和分享（[Fork后提交代码](https://github.com/oldratlee/fucking-java-concurrency/fork)）！ :kissing_heart:
 
-:beer: 无同步的修改在另一个线程中读不到
+:beer: 无同步的修改在另一个线程中会读不到
 ----------------------------------
 
 Demo类[`com.oldratlee.fucking.concurrency.NoPublishDemo`](src/main/java/com/oldratlee/fucking/concurrency/NoPublishDemo.java)。
@@ -31,26 +31,6 @@ Demo类[`com.oldratlee.fucking.concurrency.NoPublishDemo`](src/main/java/com/old
 
 ```bash
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.NoPublishDemo
-```
-
-:beer: `long`变量读到无效值
-----------------------------------
-
-`long`变量读写不是原子的，会分为2次4字节操作。     
-Demo类[`com.oldratlee.fucking.concurrency.InvalidLongDemo`](src/main/java/com/oldratlee/fucking/concurrency/InvalidLongDemo.java)。
-
-### Demo说明
-
-主线程修改`long`变量，每次写入的`long`值的高4字节和低4字节是一样的。在任务线程中读取`long`变量。
-
-### 问题说明
-
-任务线程中读到了高4字节和低4字节不一样的`long`变量，即是无效值（从来没有设置过的值）。
-
-### 快速运行
-
-```bash
-mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.InvalidLongDemo
 ```
 
 :beer: `HashMap`的死循环
@@ -71,6 +51,50 @@ Demo类[`com.oldratlee.fucking.concurrency.HashMapHangDemo`](src/main/java/com/o
 
 ```bash
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.HashMapHangDemo
+```
+
+:beer: 组合状态读到无效组合
+----------------------------------
+
+程序设计时，会需要多个状态记录（状态可以是个`POJO`对象或是`int`等等）。常看到多状态读写没有同步的代码，并且写的同学会很自然地就忽略了线程安全的问题。
+
+无效组合 是指 从来没有设置过的组合。
+
+### Demo说明
+
+主线程修改多个状态，为了方便检查，每次写入有个固定的关系：第2个状态是第1个状态值的2倍。在任务线程中读取多个状态。  
+Demo类[`com.oldratlee.fucking.concurrency.InvalidCombinationStatDemo`](src/main/java/com/oldratlee/fucking/concurrency/InvalidCombinationStatDemo.java)。
+
+### 问题说明
+
+任务线程中读到了 第2个状态不是第1个状态值2倍的值，即是无效值。
+
+### 快速运行
+
+```bash
+mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.InvalidCombinationStatDemo
+```
+
+:beer: `long`变量读到无效值
+----------------------------------
+
+无效值 是指 从来没有设置过的值。
+
+`long`变量读写不是原子的，会分为2次4字节操作。     
+Demo类[`com.oldratlee.fucking.concurrency.InvalidLongDemo`](src/main/java/com/oldratlee/fucking/concurrency/InvalidLongDemo.java)。
+
+### Demo说明
+
+主线程修改`long`变量，为了方便检查，每次写入的`long`值的高4字节和低4字节是一样的。在任务线程中读取`long`变量。
+
+### 问题说明
+
+任务线程中读到了高4字节和低4字节不一样的`long`变量，即是无效值。
+
+### 快速运行
+
+```bash
+mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.InvalidLongDemo
 ```
 
 :beer: 无同步的并发计数结果不对
