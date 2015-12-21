@@ -65,7 +65,7 @@ mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.HashMap
 ### Demo说明
 
 主线程修改多个状态，为了方便检查，每次写入有个固定的关系：第2个状态是第1个状态值的2倍。在任务线程中读取多个状态。  
-Demo类[`com.oldratlee.fucking.concurrency.InvalidCombinationStatDemo`](src/main/java/com/oldratlee/fucking/concurrency/InvalidCombinationStatDemo.java)。
+Demo类[`com.oldratlee.fucking.concurrency.InvalidCombinationStateDemo`](src/main/java/com/oldratlee/fucking/concurrency/InvalidCombinationStateDemo.java)。
 
 ### 问题说明
 
@@ -74,7 +74,7 @@ Demo类[`com.oldratlee.fucking.concurrency.InvalidCombinationStatDemo`](src/main
 ### 快速运行
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.InvalidCombinationStatDemo
+mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.InvalidCombinationStateDemo
 ```
 
 :beer: `long`变量读到无效值

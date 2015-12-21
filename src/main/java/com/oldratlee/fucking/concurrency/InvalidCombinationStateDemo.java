@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * @author Jerry Lee (oldratlee at gmail dot com)
  */
-public class InvalidCombinationStatDemo {
+public class InvalidCombinationStateDemo {
     public static void main(String[] args) {
         CombinationStatTask task = new CombinationStatTask();
         Thread thread = new Thread(task);
