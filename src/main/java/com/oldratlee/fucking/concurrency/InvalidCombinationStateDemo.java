@@ -13,8 +13,9 @@ public class InvalidCombinationStateDemo {
 
         Random random = new Random();
         while (true) {
-            task.state1 = random.nextInt(1000);
-            task.state2 = task.state1 * 2;
+            int rand = random.nextInt(1000);
+            task.state1 = rand;
+            task.state2 = rand * 2;
         }
     }
 
@@ -34,7 +35,7 @@ public class InvalidCombinationStateDemo {
                     System.err.printf("Fuck! Got invalid CombinationStat!! check time=%s, happen time=%s(%s%%), count value=%s|%s\n",
                             i + 1, c, (float) c / (i + 1) * 100, i1, i2);
                 } else {
-                    // 如果去掉这个输出，则在我的开发机上，发生无效组合的概率由 ~15% 降到 ~0.1%
+                    // 如果去掉这个输出，则在我的开发机上，发生无效组合的概率由 ~5% 降到 ~0.1%
                     System.out.printf("Emm... %s|%s\n", i1, i2);
                 }
             }
