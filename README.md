@@ -15,6 +15,10 @@ fucking-java-concurrency
 
 你在开发中碰到的并发问题的例子，欢迎提供（[提交Issue](https://github.com/oldratlee/fucking-java-concurrency/issues))和分享（[Fork后提交代码](https://github.com/oldratlee/fucking-java-concurrency/fork)）！ :kissing_heart:
 
+--------------------------------------------------------------------------------
+
+<img src="dining-philosophers-problem.jpg" width="30%" align="right" />
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
@@ -50,6 +54,8 @@ fucking-java-concurrency
 - [一些并发的问题讨论和资料](#%E4%B8%80%E4%BA%9B%E5%B9%B6%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98%E8%AE%A8%E8%AE%BA%E5%92%8C%E8%B5%84%E6%96%99)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+--------------------------------------------------------------------------------
 
 :beer: 无同步的修改在另一个线程中会读不到
 ----------------------------------
