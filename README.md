@@ -1,19 +1,19 @@
 fucking-java-concurrency
 ==========================
 
-:point_right: 通过Demo演示出`Java`中并发问题。
+👉 通过Demo演示出`Java`中并发问题。
 
-:apple: 整理Demo的原因
+🍎 整理Demo的原因
 ----------------------------------
 
-- 可以观察到的实际现象 :see_no_evil: 比 说说的并发原则 :speak_no_evil: 更直观更可信。
+- 可以观察到的实际现象 🙈 比 说说的并发原则 🙊 更直观更可信。 
 - `Java`语言标准库支持线程，语言本身（如`GC`）以及应用（服务器端`The Server side`）中会重度使用多线程。
 - 并发程度设计在分析和实现中，复杂度大大增加。
     如果不系统理解和充分分析并发逻辑，随意写代码，这样的程序用 **『碰巧』** 能运行出正确结果 来形容一点都不为过。
 
 这里的Demo没有给出解释和讨论，并且都是入门级的 :neckbeard: ，更多了解请参见[一些并发的问题讨论和资料](#一些并发的问题讨论和资料)。
 
-你在开发中碰到的并发问题的例子，欢迎提供（[提交Issue](https://github.com/oldratlee/fucking-java-concurrency/issues))和分享（[Fork后提交代码](https://github.com/oldratlee/fucking-java-concurrency/fork)）！ :kissing_heart:
+你在开发中碰到的并发问题的例子，欢迎提供（[提交Issue](https://github.com/oldratlee/fucking-java-concurrency/issues))和分享（[Fork后提交代码](https://github.com/oldratlee/fucking-java-concurrency/fork)）！ 😘
 
 --------------------------------------------------------------------------------
 
@@ -23,41 +23,41 @@ fucking-java-concurrency
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [:beer: 无同步的修改在另一个线程中会读不到](#beer-%E6%97%A0%E5%90%8C%E6%AD%A5%E7%9A%84%E4%BF%AE%E6%94%B9%E5%9C%A8%E5%8F%A6%E4%B8%80%E4%B8%AA%E7%BA%BF%E7%A8%8B%E4%B8%AD%E4%BC%9A%E8%AF%BB%E4%B8%8D%E5%88%B0)
-  - [Demo说明](#demo%E8%AF%B4%E6%98%8E)
-  - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E)
-  - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C)
-- [:beer: `HashMap`的死循环](#beer-hashmap%E7%9A%84%E6%AD%BB%E5%BE%AA%E7%8E%AF)
-  - [Demo说明](#demo%E8%AF%B4%E6%98%8E-1)
-  - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-1)
-  - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-1)
-- [:beer: 组合状态读到无效组合](#beer-%E7%BB%84%E5%90%88%E7%8A%B6%E6%80%81%E8%AF%BB%E5%88%B0%E6%97%A0%E6%95%88%E7%BB%84%E5%90%88)
-  - [Demo说明](#demo%E8%AF%B4%E6%98%8E-2)
-  - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-2)
-  - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-2)
-- [:beer: `long`变量读到无效值](#beer-long%E5%8F%98%E9%87%8F%E8%AF%BB%E5%88%B0%E6%97%A0%E6%95%88%E5%80%BC)
-  - [Demo说明](#demo%E8%AF%B4%E6%98%8E-3)
-  - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-3)
-  - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-3)
-- [:beer: 无同步的并发计数结果不对](#beer-%E6%97%A0%E5%90%8C%E6%AD%A5%E7%9A%84%E5%B9%B6%E5%8F%91%E8%AE%A1%E6%95%B0%E7%BB%93%E6%9E%9C%E4%B8%8D%E5%AF%B9)
-  - [Demo说明](#demo%E8%AF%B4%E6%98%8E-4)
-  - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-4)
-  - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-4)
-- [:beer: 在易变域上的同步](#beer-%E5%9C%A8%E6%98%93%E5%8F%98%E5%9F%9F%E4%B8%8A%E7%9A%84%E5%90%8C%E6%AD%A5)
-  - [Demo说明](#demo%E8%AF%B4%E6%98%8E-5)
-  - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-5)
-  - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-5)
-- [:beer: 对称锁死锁](#beer-%E5%AF%B9%E7%A7%B0%E9%94%81%E6%AD%BB%E9%94%81)
-  - [Demo说明](#demo%E8%AF%B4%E6%98%8E-6)
-  - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-6)
-  - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-6)
+- [🍺 无同步的修改在另一个线程中会读不到](#-%E6%97%A0%E5%90%8C%E6%AD%A5%E7%9A%84%E4%BF%AE%E6%94%B9%E5%9C%A8%E5%8F%A6%E4%B8%80%E4%B8%AA%E7%BA%BF%E7%A8%8B%E4%B8%AD%E4%BC%9A%E8%AF%BB%E4%B8%8D%E5%88%B0)
+    - [Demo说明](#demo%E8%AF%B4%E6%98%8E)
+    - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E)
+    - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C)
+- [🍺 `HashMap`的死循环](#-hashmap%E7%9A%84%E6%AD%BB%E5%BE%AA%E7%8E%AF)
+    - [Demo说明](#demo%E8%AF%B4%E6%98%8E-1)
+    - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-1)
+    - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-1)
+- [🍺 组合状态读到无效组合](#-%E7%BB%84%E5%90%88%E7%8A%B6%E6%80%81%E8%AF%BB%E5%88%B0%E6%97%A0%E6%95%88%E7%BB%84%E5%90%88)
+    - [Demo说明](#demo%E8%AF%B4%E6%98%8E-2)
+    - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-2)
+    - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-2)
+- [🍺 `long`变量读到无效值](#-long%E5%8F%98%E9%87%8F%E8%AF%BB%E5%88%B0%E6%97%A0%E6%95%88%E5%80%BC)
+    - [Demo说明](#demo%E8%AF%B4%E6%98%8E-3)
+    - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-3)
+    - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-3)
+- [🍺 无同步的并发计数结果不对](#-%E6%97%A0%E5%90%8C%E6%AD%A5%E7%9A%84%E5%B9%B6%E5%8F%91%E8%AE%A1%E6%95%B0%E7%BB%93%E6%9E%9C%E4%B8%8D%E5%AF%B9)
+    - [Demo说明](#demo%E8%AF%B4%E6%98%8E-4)
+    - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-4)
+    - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-4)
+- [🍺 在易变域上的同步](#-%E5%9C%A8%E6%98%93%E5%8F%98%E5%9F%9F%E4%B8%8A%E7%9A%84%E5%90%8C%E6%AD%A5)
+    - [Demo说明](#demo%E8%AF%B4%E6%98%8E-5)
+    - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-5)
+    - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-5)
+- [🍺 对称锁死锁](#-%E5%AF%B9%E7%A7%B0%E9%94%81%E6%AD%BB%E9%94%81)
+    - [Demo说明](#demo%E8%AF%B4%E6%98%8E-6)
+    - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-6)
+    - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-6)
 - [一些并发的问题讨论和资料](#%E4%B8%80%E4%BA%9B%E5%B9%B6%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98%E8%AE%A8%E8%AE%BA%E5%92%8C%E8%B5%84%E6%96%99)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 --------------------------------------------------------------------------------
 
-:beer: 无同步的修改在另一个线程中会读不到
+🍺 无同步的修改在另一个线程中会读不到
 ----------------------------------
 
 Demo类[`com.oldratlee.fucking.concurrency.NoPublishDemo`](src/main/java/com/oldratlee/fucking/concurrency/NoPublishDemo.java)。
@@ -76,10 +76,10 @@ Demo类[`com.oldratlee.fucking.concurrency.NoPublishDemo`](src/main/java/com/old
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.NoPublishDemo
 ```
 
-:beer: `HashMap`的死循环
+🍺 `HashMap`的死循环
 ----------------------------------
 
-这个问题在[疫苗：Java HashMap的死循环](http://coolshell.cn/articles/9606.html)等多个地方都有讲解。    
+这个问题在[疫苗：Java HashMap的死循环](http://coolshell.cn/articles/9606.html)等多个地方都有讲解。  
 Demo类[`com.oldratlee.fucking.concurrency.HashMapHangDemo`](src/main/java/com/oldratlee/fucking/concurrency/HashMapHangDemo.java)，可以复现这个问题。
 
 ### Demo说明
@@ -96,7 +96,7 @@ Demo类[`com.oldratlee.fucking.concurrency.HashMapHangDemo`](src/main/java/com/o
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.HashMapHangDemo
 ```
 
-:beer: 组合状态读到无效组合
+🍺 组合状态读到无效组合
 ----------------------------------
 
 程序设计时，会需要多个状态记录（状态可以是个`POJO`对象或是`int`等等）。常看到多状态读写没有同步的代码，并且写的同学会很自然地就忽略了线程安全的问题。
@@ -118,12 +118,12 @@ Demo类[`com.oldratlee.fucking.concurrency.InvalidCombinationStateDemo`](src/mai
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.InvalidCombinationStateDemo
 ```
 
-:beer: `long`变量读到无效值
+🍺 `long`变量读到无效值
 ----------------------------------
 
 无效值 是指 从来没有设置过的值。
 
-`long`变量读写不是原子的，会分为2次4字节操作。     
+`long`变量读写不是原子的，会分为2次4字节操作。  
 Demo类[`com.oldratlee.fucking.concurrency.InvalidLongDemo`](src/main/java/com/oldratlee/fucking/concurrency/InvalidLongDemo.java)。
 
 ### Demo说明
@@ -140,7 +140,7 @@ Demo类[`com.oldratlee.fucking.concurrency.InvalidLongDemo`](src/main/java/com/o
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.InvalidLongDemo
 ```
 
-:beer: 无同步的并发计数结果不对
+🍺 无同步的并发计数结果不对
 ----------------------------------
 
 Demo类[`com.oldratlee.fucking.concurrency.WrongCounterDemo`](src/main/java/com/oldratlee/fucking/concurrency/WrongCounterDemo.java)。
@@ -159,11 +159,11 @@ Demo类[`com.oldratlee.fucking.concurrency.WrongCounterDemo`](src/main/java/com/
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.WrongCounterDemo
 ```
 
-:beer: 在易变域上的同步
+🍺 在易变域上的同步
 -------------------------
 
-常看到在易变域上的同步代码，并且写的同学会很自然觉得这样是安全和正确的。      
-\# 问题分析见文章链接：[在易变域上的同步](http://www.ibm.com/developerworks/cn/java/j-concurrencybugpatterns/#N100DA)，对应的英文文章：[Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N100E7)    
+常看到在易变域上的同步代码，并且写的同学会很自然觉得这样是安全和正确的。  
+\# 问题分析见文章链接：[在易变域上的同步](http://www.ibm.com/developerworks/cn/java/j-concurrencybugpatterns/#N100DA)，对应的英文文章：[Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N100E7)  
 Demo类[`com.oldratlee.fucking.concurrency.SynchronizationOnMutableFieldDemo`](src/main/java/com/oldratlee/fucking/concurrency/SynchronizationOnMutableFieldDemo.java)。
 
 ### Demo说明
@@ -180,10 +180,10 @@ Demo类[`com.oldratlee.fucking.concurrency.SynchronizationOnMutableFieldDemo`](s
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.SynchronizationOnMutableFieldDemo
 ```
 
-:beer: 对称锁死锁
+🍺 对称锁死锁
 -------------------------
 
-\# 问题分析见文章链接：[对称锁死锁](http://www.ibm.com/developerworks/cn/java/j-concurrencybugpatterns/#N101B4)，对应的英文文章：[Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N101C1)    
+\# 问题分析见文章链接：[对称锁死锁](http://www.ibm.com/developerworks/cn/java/j-concurrencybugpatterns/#N101B4)，对应的英文文章：[Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N101C1)  
 Demo类[`com.oldratlee.fucking.concurrency.SymmetricLockDeadlockDemo`](src/main/java/com/oldratlee/fucking/concurrency/SymmetricLockDeadlockDemo.java)。
 
 ### Demo说明
