@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 /**
  * @author Jerry Lee (oldratlee at gmail dot com)
  */
-public class Utils {
+public class LoadMaker {
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     private static final int THREAD_COUNT = CPU_COUNT * 2;
 
