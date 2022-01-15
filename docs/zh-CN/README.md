@@ -80,7 +80,8 @@ mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.NoPubli
 🍺 `HashMap`的死循环
 ----------------------------------
 
-这个问题在[疫苗：Java HashMap的死循环](http://coolshell.cn/articles/9606.html)等多个地方都有讲解。  
+这个问题在[疫苗：Java HashMap的死循环](http://coolshell.cn/articles/9606.html)等多个地方都有讲解。
+
 Demo类[`com.oldratlee.fucking.concurrency.HashMapHangDemo`](../../src/main/java/com/oldratlee/fucking/concurrency/HashMapHangDemo.java)，可以复现这个问题。
 
 ### Demo说明
@@ -124,7 +125,8 @@ mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.Invalid
 
 无效值 是指 从来没有设置过的值。
 
-`long`变量读写不是原子的，会分为2次4字节操作。  
+`long`变量读写不是原子的，会分为2次4字节操作。
+
 Demo类[`com.oldratlee.fucking.concurrency.InvalidLongDemo`](../../src/main/java/com/oldratlee/fucking/concurrency/InvalidLongDemo.java)。
 
 ### Demo说明
@@ -164,7 +166,8 @@ mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.WrongCo
 -------------------------
 
 常看到在易变域上的同步代码，并且写的同学会很自然觉得这样是安全和正确的。  
-\# 问题分析见文章链接：[在易变域上的同步](http://www.ibm.com/developerworks/cn/java/j-concurrencybugpatterns/#N100DA)，对应的英文文章：[Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N100E7)  
+\# 问题分析见文章链接：[在易变域上的同步](http://www.ibm.com/developerworks/cn/java/j-concurrencybugpatterns/#N100DA)，对应的英文文章：[Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N100E7)
+
 Demo类[`com.oldratlee.fucking.concurrency.SynchronizationOnMutableFieldDemo`](../../src/main/java/com/oldratlee/fucking/concurrency/SynchronizationOnMutableFieldDemo.java)。
 
 ### Demo说明
