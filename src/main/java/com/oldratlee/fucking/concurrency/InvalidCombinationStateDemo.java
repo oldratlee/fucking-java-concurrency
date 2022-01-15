@@ -21,7 +21,7 @@ public class InvalidCombinationStateDemo {
     }
 
     private static class CombinationStatTask implements Runnable {
-        // 对于组合状态，加 volatile 不能解决问题
+        // For combined state, adding volatile does not solve the problem
         volatile int state1;
         volatile int state2;
 
@@ -36,7 +36,8 @@ public class InvalidCombinationStateDemo {
                     System.err.printf("Fuck! Got invalid CombinationStat!! check time=%s, happen time=%s(%s%%), count value=%s|%s\n",
                             i + 1, c, (float) c / (i + 1) * 100, i1, i2);
                 } else {
-                    // 如果去掉这个输出，则在我的开发机上，发生无效组合的概率由 ~5% 降到 ~0.1%
+                    // if remove blew output,
+                    // the probability of invalid combination on my dev machine goes from ~5% to ~0.1%
                     System.out.printf("Emm... %s|%s\n", i1, i2);
                 }
             }

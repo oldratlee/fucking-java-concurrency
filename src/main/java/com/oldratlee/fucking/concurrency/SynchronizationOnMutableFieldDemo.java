@@ -30,7 +30,9 @@ public class SynchronizationOnMutableFieldDemo {
         int actualSize = demo.listeners.size();
         int expectedSize = ADD_COUNT * 2;
         if (actualSize != expectedSize) {
-            // 在我的开发机上，几乎必现！（简单安全的解法：final List字段并用并发安全的List，如CopyOnWriteArrayList）
+            // On my development machine, it's almost must occur!
+            // Simple and safe solution:
+            //   final List field and use concurrency-safe List, such as CopyOnWriteArrayList
             System.err.printf("Fuck! Lost update on mutable field! actual %s expected %s.\n", actualSize, expectedSize);
         } else {
             System.out.println("Emm... Got right answer!!");

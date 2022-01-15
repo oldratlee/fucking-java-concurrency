@@ -6,7 +6,7 @@ import java.util.Random;
 
 /**
  * @author Jerry Lee (oldratlee at gmail dot com)
- * @see <a href="http://coolshell.cn/articles/9606.html">Java HashMap的死循环</a>@<a href="http://weibo.com/haoel">左耳朵耗子</a>
+ * @see <a href="http://coolshell.cn/articles/9606.html">Infinite loop of Java HashMap</a> by <a href="http://github.com/haoel">@haoel</a>
  */
 @SuppressWarnings("InfiniteLoopStatement")
 public class HashMapHangDemo {
@@ -28,8 +28,8 @@ public class HashMapHangDemo {
             for (int j = 0; j < 10000; ++j) {
                 demo.holder.get(j);
 
-                // 如果出现hashmap的get hang住问题，则下面的输出就不会再出现了。
-                // 在我的开发机上，很容易在第一轮就观察到这个问题。
+                // If the hashmap occurs hang problem, the following output will not appear again.
+                // On my dev machine, this problem is easily observed in the first round.
                 System.out.printf("Got key %s in round %s\n", j, i);
             }
         }

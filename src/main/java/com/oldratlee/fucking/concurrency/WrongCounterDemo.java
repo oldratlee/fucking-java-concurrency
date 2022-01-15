@@ -23,7 +23,10 @@ public class WrongCounterDemo {
         int actualCounter = demo.counter;
         int expectedCount = INC_COUNT * 2;
         if (actualCounter != expectedCount) {
-            // 在我的开发机上，几乎必现！即使counter上加了volatile。（简单安全的解法：使用AtomicInteger）
+            // Even if volatile is added to the counter field,
+            // On my dev machine, it's almost must occur!
+            // Simple and safe solution:
+            //   use AtomicInteger
             System.err.printf("Fuck! Got wrong count!! actual %s, expected: %s.", actualCounter, expectedCount);
         } else {
             System.out.println("Wow... Got right count!");

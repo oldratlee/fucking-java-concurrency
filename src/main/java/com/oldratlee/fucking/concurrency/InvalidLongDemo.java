@@ -39,7 +39,7 @@ public class InvalidLongDemo {
                     System.err.printf("Fuck! Got invalid long!! check time=%s, happen time=%s(%s%%), count value=%s|%s\n",
                             i + 1, c, (float) c / (i + 1) * 100, high, low);
                 } else {
-                    // 如果去掉这个输出，则在我的开发机上没有观察到invalid long
+                    // If remove this output, invalid long is not observed on my dev machine
                     System.out.printf("Emm... %s|%s\n", high, low);
                 }
             }
