@@ -3,6 +3,7 @@ package com.oldratlee.fucking.concurrency;
 /**
  * @author Jerry Lee(oldratlee at gmail dot com)
  */
+@SuppressWarnings("InfiniteLoopStatement")
 public class InvalidLongDemo {
     long count = 0;
 
@@ -15,7 +16,8 @@ public class InvalidLongDemo {
         thread.start();
 
         for (int i = 0; ; i++) {
-            long l = i;
+            @SuppressWarnings("UnnecessaryLocalVariable")
+            final long l = i;
             demo.count = l << 32 | l;
         }
     }

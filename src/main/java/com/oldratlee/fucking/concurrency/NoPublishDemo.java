@@ -29,6 +29,7 @@ public class NoPublishDemo {
         return new ConcurrencyCheckTask();
     }
 
+    @SuppressWarnings({"StatementWithEmptyBody", "WhileLoopSpinsOnField"})
     private class ConcurrencyCheckTask implements Runnable {
         @Override
         public void run() {

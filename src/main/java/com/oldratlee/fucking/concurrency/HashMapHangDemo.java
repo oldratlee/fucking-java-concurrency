@@ -8,8 +8,9 @@ import java.util.Random;
  * @author Jerry Lee (oldratlee at gmail dot com)
  * @see <a href="http://coolshell.cn/articles/9606.html">Java HashMap的死循环</a>@<a href="http://weibo.com/haoel">左耳朵耗子</a>
  */
+@SuppressWarnings("InfiniteLoopStatement")
 public class HashMapHangDemo {
-    final Map<Integer, Object> holder = new HashMap<Integer, Object>();
+    final Map<Integer, Object> holder = new HashMap<>();
 
     public static void main(String[] args) {
         HashMapHangDemo demo = new HashMapHangDemo();
@@ -39,7 +40,7 @@ public class HashMapHangDemo {
     }
 
     private class ConcurrencyTask implements Runnable {
-        Random random = new Random();
+        private final Random random = new Random();
 
         @Override
         public void run() {

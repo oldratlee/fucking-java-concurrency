@@ -6,6 +6,7 @@ package com.oldratlee.fucking.concurrency;
 public class InconsistentReadDemo {
     int count = 1;
 
+    @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) {
         InconsistentReadDemo demo = new InconsistentReadDemo();
 
@@ -23,6 +24,7 @@ public class InconsistentReadDemo {
 
     private class ConcurrencyCheckTask implements Runnable {
         @Override
+        @SuppressWarnings({"InfiniteLoopStatement", "ConstantConditions"})
         public void run() {
             int c = 0;
             for (int i = 0; ; i++) {

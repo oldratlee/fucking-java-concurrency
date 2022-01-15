@@ -16,6 +16,7 @@ public class SymmetricLockDeadlockDemo {
 
     private static class ConcurrencyCheckTask1 implements Runnable {
         @Override
+        @SuppressWarnings("InfiniteLoopStatement")
         public void run() {
             System.out.println("ConcurrencyCheckTask1 started!");
             while (true) {
@@ -30,6 +31,7 @@ public class SymmetricLockDeadlockDemo {
 
     private static class ConcurrencyCheckTask2 implements Runnable {
         @Override
+        @SuppressWarnings("InfiniteLoopStatement")
         public void run() {
             System.out.println("ConcurrencyCheckTask2 started!");
             while (true) {

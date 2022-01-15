@@ -5,6 +5,7 @@ import java.util.Random;
 /**
  * @author Jerry Lee (oldratlee at gmail dot com)
  */
+@SuppressWarnings("InfiniteLoopStatement")
 public class InvalidCombinationStateDemo {
     public static void main(String[] args) {
         CombinationStatTask task = new CombinationStatTask();

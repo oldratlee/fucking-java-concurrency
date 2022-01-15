@@ -14,7 +14,7 @@ public class SynchronizationOnMutableFieldDemo {
         // stub class
     }
 
-    private volatile List<Listener> listeners = new CopyOnWriteArrayList<Listener>();
+    private volatile List<Listener> listeners = new CopyOnWriteArrayList<>();
 
     public static void main(String[] args) throws Exception {
         SynchronizationOnMutableFieldDemo demo = new SynchronizationOnMutableFieldDemo();
@@ -37,9 +37,10 @@ public class SynchronizationOnMutableFieldDemo {
         }
     }
 
+    @SuppressWarnings("SynchronizeOnNonFinalField")
     public void addListener(Listener listener) {
         synchronized (listeners) {
-            List<Listener> results = new ArrayList<Listener>(listeners);
+            List<Listener> results = new ArrayList<>(listeners);
             results.add(listener);
             listeners = results;
         }
