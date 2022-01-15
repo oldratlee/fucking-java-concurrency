@@ -3,10 +3,10 @@ package com.oldratlee.fucking.concurrency;
 /**
  * @author Jerry Lee(oldratlee at gmail dot com)
  */
-@SuppressWarnings("InfiniteLoopStatement")
 public class InvalidLongDemo {
     long count = 0;
 
+    @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) {
         // LoadMaker.makeLoad();
 
@@ -28,6 +28,7 @@ public class InvalidLongDemo {
 
     private class ConcurrencyCheckTask implements Runnable {
         @Override
+        @SuppressWarnings("InfiniteLoopStatement")
         public void run() {
             int c = 0;
             for (int i = 0; ; i++) {

@@ -33,7 +33,7 @@ public class LoadMaker {
         isLoadMade = false;
     }
 
-    public static void sleep(long millis) {
+    private static void sleep(long millis) {
         try {
             Thread.sleep(millis);
         } catch (InterruptedException ignored) {

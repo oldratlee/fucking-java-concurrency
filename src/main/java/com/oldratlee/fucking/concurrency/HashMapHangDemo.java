@@ -8,10 +8,10 @@ import java.util.Random;
  * @author Jerry Lee (oldratlee at gmail dot com)
  * @see <a href="http://coolshell.cn/articles/9606.html">Infinite loop of Java HashMap</a> by <a href="http://github.com/haoel">@haoel</a>
  */
-@SuppressWarnings("InfiniteLoopStatement")
 public class HashMapHangDemo {
     final Map<Integer, Object> holder = new HashMap<>();
 
+    @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) {
         HashMapHangDemo demo = new HashMapHangDemo();
         for (int i = 0; i < 100; i++) {
@@ -43,6 +43,7 @@ public class HashMapHangDemo {
         private final Random random = new Random();
 
         @Override
+        @SuppressWarnings("InfiniteLoopStatement")
         public void run() {
             System.out.println("Add loop started in task!");
             while (true) {
