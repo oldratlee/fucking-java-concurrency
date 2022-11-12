@@ -12,7 +12,7 @@ jobs:
         java: [ 8, 11, 17, 19 ]
       fail-fast: false
       max-parallel: 64
-    name: Test JDK ${{ matrix.java }}, ${{ matrix.os }}
+    name: Test JDK ${{ matrix.java }}
 
     steps:
       - uses: actions/checkout@v3
