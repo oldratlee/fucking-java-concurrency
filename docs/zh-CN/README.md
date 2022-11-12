@@ -1,12 +1,23 @@
-🎏 fucking-java-concurrency
-==========================
+# <div align="center"> 🎏 fucking-java-concurrency</div>
+
+<p align="center">
+<a href="https://github.com/oldratlee/fucking-java-concurrency/actions/workflows/ci.yaml"><img src="https://img.shields.io/github/workflow/status/oldratlee/fucking-java-concurrency/CI/master?logo=github&logoColor=white" alt="Github Workflow Build Status"></a>
+<a href="https://openjdk.java.net/"><img src="https://img.shields.io/badge/Java-8+-green?logo=openjdk&logoColor=white" alt="JDK support"></a>
+<a href="https://www.apache.org/licenses/LICENSE-2.0.html"><img src="https://img.shields.io/github/license/oldratlee/fucking-java-concurrency?color=4D7A97&logo=apache" alt="License"></a>
+<a href="https://github.com/oldratlee/fucking-java-concurrency/stargazers"><img src="https://img.shields.io/github/stars/oldratlee/fucking-java-concurrency" alt="GitHub Stars"></a>
+<a href="https://github.com/oldratlee/fucking-java-concurrency/fork"><img src="https://img.shields.io/github/forks/oldratlee/fucking-java-concurrency" alt="GitHub Forks"></a>
+<a href="https://github.com/oldratlee/fucking-java-concurrency/graphs/contributors"><img src="https://img.shields.io/github/contributors/oldratlee/fucking-java-concurrency" alt="GitHub Contributors"></a>
+<a href="https://github.com/oldratlee/fucking-java-concurrency"><img src="https://img.shields.io/github/repo-size/oldratlee/fucking-java-concurrency" alt="GitHub repo size"></a>
+</p>
+
+----------------------------------------
 
 [📖 English Documentation](../../README.md) | 📖 中文文档
 
 👉 通过Demo演示出`Java`中并发问题。
 
-🍎 整理Demo的原因
-----------------------------------
+## 🍎 整理Demo的原因
+
 
 - 可以观察到的实际现象 🙈 比 说说的并发原则 🙊 更直观更可信。 
 - `Java`语言标准库支持线程，语言本身（如`GC`）以及应用（服务器端`the server side`）中会重度使用多线程。
@@ -58,8 +69,7 @@
 
 ----------------------------------------
 
-🍺 无同步的修改在另一个线程中会读不到
-----------------------------------
+## 🍺 无同步的修改在另一个线程中会读不到
 
 Demo类[`com.oldratlee.fucking.concurrency.NoPublishDemo`](../../src/main/java/com/oldratlee/fucking/concurrency/NoPublishDemo.java)。
 
@@ -77,8 +87,7 @@ Demo类[`com.oldratlee.fucking.concurrency.NoPublishDemo`](../../src/main/java/c
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.NoPublishDemo
 ```
 
-🍺 `HashMap`的死循环
-----------------------------------
+## 🍺 `HashMap`的死循环
 
 这个问题在[疫苗：Java HashMap的死循环](http://coolshell.cn/articles/9606.html)等多个地方都有讲解。
 
@@ -98,8 +107,7 @@ Demo类[`com.oldratlee.fucking.concurrency.HashMapHangDemo`](../../src/main/java
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.HashMapHangDemo
 ```
 
-🍺 组合状态读到无效组合
-----------------------------------
+## 🍺 组合状态读到无效组合
 
 程序设计时，会需要多个状态记录（状态可以是个`POJO`对象或是`int`等等）。常看到多状态读写没有同步的代码，并且写的同学会很自然地就忽略了线程安全的问题。
 
@@ -120,8 +128,7 @@ Demo类[`com.oldratlee.fucking.concurrency.InvalidCombinationStateDemo`](../../s
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.InvalidCombinationStateDemo
 ```
 
-🍺 `long`变量读到无效值
-----------------------------------
+## 🍺 `long`变量读到无效值
 
 无效值 是指 从来没有设置过的值。
 
@@ -143,8 +150,7 @@ Demo类[`com.oldratlee.fucking.concurrency.InvalidLongDemo`](../../src/main/java
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.InvalidLongDemo
 ```
 
-🍺 无同步的并发计数结果不对
-----------------------------------
+## 🍺 无同步的并发计数结果不对
 
 Demo类[`com.oldratlee.fucking.concurrency.WrongCounterDemo`](../../src/main/java/com/oldratlee/fucking/concurrency/WrongCounterDemo.java)。
 
@@ -162,8 +168,7 @@ Demo类[`com.oldratlee.fucking.concurrency.WrongCounterDemo`](../../src/main/jav
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.WrongCounterDemo
 ```
 
-🍺 在易变域上的同步
--------------------------
+## 🍺 在易变域上的同步
 
 常看到在易变域上的同步代码，并且写的同学会很自然觉得这样是安全和正确的。  
 \# 问题分析见文章链接：[在易变域上的同步](http://www.ibm.com/developerworks/cn/java/j-concurrencybugpatterns/#N100DA)，对应的英文文章：[Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N100E7)
@@ -184,8 +189,7 @@ Demo类[`com.oldratlee.fucking.concurrency.SynchronizationOnMutableFieldDemo`](.
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.SynchronizationOnMutableFieldDemo
 ```
 
-🍺 对称锁死锁
--------------------------
+## 🍺 对称锁死锁
 
 \# 问题分析见文章链接：[对称锁死锁](http://www.ibm.com/developerworks/cn/java/j-concurrencybugpatterns/#N101B4)，对应的英文文章：[Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N101C1)  
 Demo类[`com.oldratlee.fucking.concurrency.SymmetricLockDeadlockDemo`](../../src/main/java/com/oldratlee/fucking/concurrency/SymmetricLockDeadlockDemo.java)。
@@ -204,8 +208,7 @@ Demo类[`com.oldratlee.fucking.concurrency.SymmetricLockDeadlockDemo`](../../src
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.SymmetricLockDeadlockDemo
 ```
 
-一些并发的问题讨论和资料
--------------------------
+## 一些并发的问题讨论和资料
 
 - [ibm developerworks - 多核系统上的`Java`并发缺陷模式（`bug patterns`）](http://www.ibm.com/developerworks/cn/java/j-concurrencybugpatterns/)
 - [stackoverflow - What is the most frequent concurrency issue you've encountered in Java?](http://stackoverflow.com/questions/461896/what-is-the-most-frequent-concurrency-issue-youve-encountered-in-java)
