@@ -67,7 +67,7 @@ Examples of concurrency problems you encountered in development are welcome to p
 
 ## 🍺 Update without synchronization cannot be read in another thread
 
-Demo class [`com.oldratlee.fucking.concurrency.NoPublishDemo`](src/main/java/com/oldratlee/fucking/concurrency/NoPublishDemo.java).
+Demo class [`NoPublishDemo`](src/main/java/com/oldratlee/fucking/concurrency/NoPublishDemo.java).
 
 ### Demo description
 
@@ -87,7 +87,7 @@ mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.NoPubli
 
 This problem has been explained in many places.
 
-The Demo class [`com.oldratlee.fucking.concurrency.HashMapHangDemo`](src/main/java/com/oldratlee/fucking/concurrency/HashMapHangDemo.java) can reproduce this problem.
+The Demo class [`HashMapHangDemo`](src/main/java/com/oldratlee/fucking/concurrency/HashMapHangDemo.java) can reproduce this problem.
 
 ### Demo description
 
@@ -114,7 +114,7 @@ Invalid combinations are combinations that have never been set.
 ### Demo description
 
 The main thread modifies multiple states. For the convenience of checking, each write has a fixed relationship: the second state is twice the value of the first state. Read multiple states in a task thread.
-Demo class com.oldratlee.fucking.concurrency.InvalidCombinationStateDemo.
+Demo class [`InvalidCombinationStateDemo`](src/main/java/com/oldratlee/fucking/concurrency/InvalidCombinationStateDemo.java).
 
 ### Problem statement
 
@@ -132,7 +132,7 @@ An invalid value is a value that has never been set.
 
 Reading and writing of `long` variables is not atomic and will be divided into two 4-byte operations.
 
-Demo class [`com.oldratlee.fucking.concurrency.InvalidLongDemo`](src/main/java/com/oldratlee/fucking/concurrency/InvalidLongDemo.java).
+Demo class [`InvalidLongDemo`](src/main/java/com/oldratlee/fucking/concurrency/InvalidLongDemo.java).
 
 ### Demo description
 
@@ -150,7 +150,7 @@ mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.Invalid
 
 ## 🍺 the result of concurrency count without synchronization is wrong
 
-Demo class [`com.oldratlee.fucking.concurrency.WrongCounterDemo`](src/main/java/com/oldratlee/fucking/concurrency/WrongCounterDemo.java).
+Demo class [`WrongCounterDemo`](src/main/java/com/oldratlee/fucking/concurrency/WrongCounterDemo.java).
 
 ### Demo description
 
@@ -171,7 +171,7 @@ mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.WrongCo
 It is common to see synchronization code on a volatile field, and the person who write it will naturally feel that this is safe and correct.  
 \# For problem analysis, see the article [Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N100E7).
 
-Demo class [`com.oldratlee.fucking.concurrency.SynchronizationOnMutableFieldDemo`](src/main/java/com/oldratlee/fucking/concurrency/SynchronizationOnMutableFieldDemo.java).
+Demo class [`SynchronizationOnMutableFieldDemo`](src/main/java/com/oldratlee/fucking/concurrency/SynchronizationOnMutableFieldDemo.java).
 
 ### Demo description
 
@@ -191,7 +191,7 @@ mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.Synchro
 
 \# For problem analysis, see the article [Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N101C1)
 
-Demo class [`com.oldratlee.fucking.concurrency.SymmetricLockDeadlockDemo`](src/main/java/com/oldratlee/fucking/concurrency/SymmetricLockDeadlockDemo.java).
+Demo class [`SymmetricLockDeadlockDemo`](src/main/java/com/oldratlee/fucking/concurrency/SymmetricLockDeadlockDemo.java).
 
 ### Demo description
 
