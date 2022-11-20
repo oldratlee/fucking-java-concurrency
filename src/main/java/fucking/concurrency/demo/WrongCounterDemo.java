@@ -27,7 +27,7 @@ public class WrongCounterDemo {
             // On my dev machine, it's almost must occur!
             // Simple and safe solution:
             //   use AtomicInteger
-            System.err.printf("Fuck! Got wrong count!! actual %s, expected: %s.", actualCounter, expectedCount);
+            System.err.printf("Fuck! Got wrong count!! actual %s, expected: %s.%n", actualCounter, expectedCount);
         } else {
             System.out.println("Wow... Got right count!");
         }

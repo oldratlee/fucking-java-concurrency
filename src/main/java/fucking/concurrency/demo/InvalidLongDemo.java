@@ -37,11 +37,11 @@ public class InvalidLongDemo {
                 long low = l & 0xFFFFFFFFL;
                 if (high != low) {
                     c++;
-                    System.err.printf("Fuck! Got invalid long!! check time=%s, happen time=%s(%s%%), count value=%s|%s\n",
+                    System.err.printf("Fuck! Got invalid long!! check time=%s, happen time=%s(%s%%), count value=%s|%s%n",
                             i + 1, c, (float) c / (i + 1) * 100, high, low);
                 } else {
                     // If remove this output, invalid long is not observed on my dev machine
-                    System.out.printf("Emm... %s|%s\n", high, low);
+                    System.out.printf("Emm... %s|%s%n", high, low);
                 }
             }
         }
