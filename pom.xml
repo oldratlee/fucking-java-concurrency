@@ -2,7 +2,7 @@
 		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.oldratlee</groupId>
+	<groupId>com.example</groupId>
 	<artifactId>fucking-java-concurrency</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -10,18 +10,6 @@
 	<url>https://github.com/oldratlee/fucking-java-concurrency</url>
 	<description>🎏 Simple showcases of java concurrency problems, seeing 🙈 is believing 🐵</description>
 	<inceptionYear>2014</inceptionYear>
-
-	<developers>
-		<developer>
-			<name>Jerry Lee</name>
-			<id>oldratlee</id>
-			<email>oldratlee(AT)gmail(DOT)com</email>
-			<roles>
-				<role>Developer</role>
-			</roles>
-			<timezone>+8</timezone>
-		</developer>
-	</developers>
 
 	<licenses>
 		<license>
@@ -37,9 +25,6 @@
 		<maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-
-	<dependencies>
-	</dependencies>
 
 	<build>
 		<plugins>

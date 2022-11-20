@@ -1,4 +1,4 @@
-package com.oldratlee.fucking.concurrency.util;
+package fucking.concurrency.demo.util;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
