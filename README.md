@@ -60,6 +60,10 @@ Examples of concurrency problems you encountered in development are welcome to p
     - [Demo description](#demo-description-6)
     - [Problem statement](#problem-statement-6)
     - [Quickly run](#quickly-run-6)
+- [🍺 Livelock caused by reentrant locks](#-livelock-caused-by-reentrant-locks)
+    - [Demo description](#demo-description-7)
+    - [Problem statement](#problem-statement-7)
+    - [Quickly run](#quickly-run-7)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -205,4 +209,26 @@ Task thread deadlocked.
 
 ```bash
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.SymmetricLockDeadlockDemo
+```
+
+## 🍺 Livelock caused by reentrant locks
+
+\# For a problem description, see the paragraph about livelocks [in this article](https://www.baeldung.com/cs/deadlock-livelock-starvation#livelock)
+
+Demo class [`ReentrantLockLivelockDemo`](src/main/java/com/oldratlee/fucking/concurrency/ReentrantLockLivelockDemo.java).
+
+### Demo description
+
+Two task threads are trying to acquire a lock that the other thread holds while holding their own lock.
+
+### Problem statement
+
+While the threads are releasing their own lock constantly, they are also re-locking it immediately, denying the other thread
+a chance to acquire both locks. Since both threads are not blocked from executing but blocked from doing meaningful work,
+this is a livelock.
+
+### Quickly run
+
+```bash
+mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.ReentrantLockLivelockDemo
 ```
