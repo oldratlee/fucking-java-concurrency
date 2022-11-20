@@ -1,4 +1,4 @@
-package com.oldratlee.fucking.concurrency;
+package fucking.concurrency.demo;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;

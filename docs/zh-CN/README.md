@@ -71,7 +71,7 @@
 
 ## 🍺 无同步的修改在另一个线程中会读不到
 
-Demo类[`NoPublishDemo`](../../src/main/java/com/oldratlee/fucking/concurrency/NoPublishDemo.java)。
+Demo类[`NoPublishDemo`](../../src/main/java/fucking/concurrency/demo/NoPublishDemo.java)。
 
 ### Demo说明
 
@@ -84,14 +84,14 @@ Demo类[`NoPublishDemo`](../../src/main/java/com/oldratlee/fucking/concurrency/N
 ### 快速运行
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.NoPublishDemo
+mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.NoPublishDemo
 ```
 
 ## 🍺 `HashMap`的死循环
 
 这个问题在[疫苗：Java HashMap的死循环](http://coolshell.cn/articles/9606.html)等多个地方都有讲解。
 
-Demo类[`HashMapHangDemo`](../../src/main/java/com/oldratlee/fucking/concurrency/HashMapHangDemo.java)，可以复现这个问题。
+Demo类[`HashMapHangDemo`](../../src/main/java/fucking/concurrency/demo/HashMapHangDemo.java)，可以复现这个问题。
 
 ### Demo说明
 
@@ -104,7 +104,7 @@ Demo类[`HashMapHangDemo`](../../src/main/java/com/oldratlee/fucking/concurrency
 ### 快速运行
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.HashMapHangDemo
+mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.HashMapHangDemo
 ```
 
 ## 🍺 组合状态读到无效组合
@@ -116,7 +116,7 @@ mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.HashMap
 ### Demo说明
 
 主线程修改多个状态，为了方便检查，每次写入有个固定的关系：第2个状态是第1个状态值的2倍。在任务线程中读取多个状态。  
-Demo类[`InvalidCombinationStateDemo`](../../src/main/java/com/oldratlee/fucking/concurrency/InvalidCombinationStateDemo.java)。
+Demo类[`InvalidCombinationStateDemo`](../../src/main/java/fucking/concurrency/demo/InvalidCombinationStateDemo.java)。
 
 ### 问题说明
 
@@ -125,7 +125,7 @@ Demo类[`InvalidCombinationStateDemo`](../../src/main/java/com/oldratlee/fucking
 ### 快速运行
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.InvalidCombinationStateDemo
+mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.InvalidCombinationStateDemo
 ```
 
 ## 🍺 `long`变量读到无效值
@@ -134,7 +134,7 @@ mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.Invalid
 
 `long`变量读写不是原子的，会分为2次4字节操作。
 
-Demo类[`InvalidLongDemo`](../../src/main/java/com/oldratlee/fucking/concurrency/InvalidLongDemo.java)。
+Demo类[`InvalidLongDemo`](../../src/main/java/fucking/concurrency/demo/InvalidLongDemo.java)。
 
 ### Demo说明
 
@@ -147,12 +147,12 @@ Demo类[`InvalidLongDemo`](../../src/main/java/com/oldratlee/fucking/concurrency
 ### 快速运行
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.InvalidLongDemo
+mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.InvalidLongDemo
 ```
 
 ## 🍺 无同步的并发计数结果不对
 
-Demo类[`WrongCounterDemo`](../../src/main/java/com/oldratlee/fucking/concurrency/WrongCounterDemo.java)。
+Demo类[`WrongCounterDemo`](../../src/main/java/fucking/concurrency/demo/WrongCounterDemo.java)。
 
 ### Demo说明
 
@@ -165,7 +165,7 @@ Demo类[`WrongCounterDemo`](../../src/main/java/com/oldratlee/fucking/concurrenc
 ### 快速运行
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.WrongCounterDemo
+mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.WrongCounterDemo
 ```
 
 ## 🍺 在易变域上的同步
@@ -173,7 +173,7 @@ mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.WrongCo
 常看到在易变域上的同步代码，并且写的同学会很自然觉得这样是安全和正确的。  
 \# 问题分析见文章链接：[在易变域上的同步](http://www.ibm.com/developerworks/cn/java/j-concurrencybugpatterns/#N100DA)，对应的英文文章：[Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N100E7)
 
-Demo类[`SynchronizationOnMutableFieldDemo`](../../src/main/java/com/oldratlee/fucking/concurrency/SynchronizationOnMutableFieldDemo.java)。
+Demo类[`SynchronizationOnMutableFieldDemo`](../../src/main/java/fucking/concurrency/demo/SynchronizationOnMutableFieldDemo.java)。
 
 ### Demo说明
 
@@ -186,13 +186,13 @@ Demo类[`SynchronizationOnMutableFieldDemo`](../../src/main/java/com/oldratlee/f
 ### 快速运行
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.SynchronizationOnMutableFieldDemo
+mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.SynchronizationOnMutableFieldDemo
 ```
 
 ## 🍺 对称锁死锁
 
 \# 问题分析见文章链接：[对称锁死锁](http://www.ibm.com/developerworks/cn/java/j-concurrencybugpatterns/#N101B4)，对应的英文文章：[Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N101C1)  
-Demo类[`SymmetricLockDeadlockDemo`](../../src/main/java/com/oldratlee/fucking/concurrency/SymmetricLockDeadlockDemo.java)。
+Demo类[`SymmetricLockDeadlockDemo`](../../src/main/java/fucking/concurrency/demo/SymmetricLockDeadlockDemo.java)。
 
 ### Demo说明
 
@@ -205,7 +205,7 @@ Demo类[`SymmetricLockDeadlockDemo`](../../src/main/java/com/oldratlee/fucking/c
 ### 快速运行
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.SymmetricLockDeadlockDemo
+mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.SymmetricLockDeadlockDemo
 ```
 
 ## 一些并发的问题讨论和资料

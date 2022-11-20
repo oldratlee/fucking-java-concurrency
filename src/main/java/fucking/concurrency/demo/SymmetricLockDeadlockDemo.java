@@ -1,4 +1,4 @@
-package com.oldratlee.fucking.concurrency;
+package fucking.concurrency.demo;
 
 /**
  * @author Jerry Lee (oldratlee at gmail dot com)
