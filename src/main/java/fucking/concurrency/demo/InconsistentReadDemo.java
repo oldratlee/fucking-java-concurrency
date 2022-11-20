@@ -35,7 +35,7 @@ public class InconsistentReadDemo {
                     c++;
                     // On my dev machine,
                     // a batch of inconsistent reads can be observed when the process starts
-                    System.err.printf("Fuck! Got inconsistent read!! check time=%s, happen time=%s(%s%%), 1=%s, 2=%s\n",
+                    System.err.printf("Fuck! Got inconsistent read!! check time=%s, happen time=%s(%s%%), 1=%s, 2=%s%n",
                             i + 1, c, (float) c / (i + 1) * 100, c1, c2);
                 }
             }

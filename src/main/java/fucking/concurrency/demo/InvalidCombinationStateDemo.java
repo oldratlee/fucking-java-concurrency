@@ -33,12 +33,12 @@ public class InvalidCombinationStateDemo {
                 int i2 = state2;
                 if (i1 * 2 != i2) {
                     c++;
-                    System.err.printf("Fuck! Got invalid CombinationStat!! check time=%s, happen time=%s(%s%%), count value=%s|%s\n",
+                    System.err.printf("Fuck! Got invalid CombinationStat!! check time=%s, happen time=%s(%s%%), count value=%s|%s%n",
                             i + 1, c, (float) c / (i + 1) * 100, i1, i2);
                 } else {
                     // if remove blew output,
                     // the probability of invalid combination on my dev machine goes from ~5% to ~0.1%
-                    System.out.printf("Emm... %s|%s\n", i1, i2);
+                    System.out.printf("Emm... %s|%s%n", i1, i2);
                 }
             }
         }

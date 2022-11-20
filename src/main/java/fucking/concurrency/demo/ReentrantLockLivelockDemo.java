@@ -18,7 +18,6 @@ public class ReentrantLockLivelockDemo {
         thread2.start();
     }
 
-    @SuppressWarnings("InfiniteLoopStatement")
     private static void concurrencyCheckTask1() {
         System.out.println("Started concurrency check task 1");
         int counter = 0;
@@ -44,12 +43,11 @@ public class ReentrantLockLivelockDemo {
             break;
         }
 
-        System.err.printf("Fuck! No meaningful work done in %s iterations of task 1.\n", counter);
+        System.err.printf("Fuck! No meaningful work done in %s iterations of task 1.%n", counter);
         lock2.unlock();
         lock1.unlock();
     }
 
-    @SuppressWarnings("InfiniteLoopStatement")
     private static void concurrencyCheckTask2() {
         System.out.println("Started concurrency check task 2");
 
@@ -75,7 +73,7 @@ public class ReentrantLockLivelockDemo {
             break;
         }
 
-        System.err.printf("Fuck! No meaningful work done in %s iterations of task 2.\n", counter);
+        System.err.printf("Fuck! No meaningful work done in %s iterations of task 2.%n", counter);
         lock2.unlock();
         lock1.unlock();
     }

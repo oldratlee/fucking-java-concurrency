@@ -30,7 +30,7 @@ public class HashMapHangDemo {
 
                 // If the hashmap occurs hang problem, the following output will not appear again.
                 // On my dev machine, this problem is easily observed in the first round.
-                System.out.printf("Got key %s in round %s\n", j, i);
+                System.out.printf("Got key %s in round %s%n", j, i);
             }
         }
     }

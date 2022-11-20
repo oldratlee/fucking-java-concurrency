@@ -33,7 +33,7 @@ public class SynchronizationOnMutableFieldDemo {
             // On my development machine, it's almost must occur!
             // Simple and safe solution:
             //   final List field and use concurrency-safe List, such as CopyOnWriteArrayList
-            System.err.printf("Fuck! Lost update on mutable field! actual %s expected %s.\n", actualSize, expectedSize);
+            System.err.printf("Fuck! Lost update on mutable field! actual %s expected %s.%n", actualSize, expectedSize);
         } else {
             System.out.println("Emm... Got right answer!!");
         }
