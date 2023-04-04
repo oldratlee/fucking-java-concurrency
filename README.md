@@ -84,7 +84,7 @@ After the `main` thread field `stop` is `true`, the task thread continues to run
 ### Quickly run
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.NoPublishDemo
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.NoPublishDemo
 ```
 
 ## 🍺 Infinite loop of `HashMap`
@@ -104,7 +104,7 @@ The main thread Block is determined by no continuous output, that is, the endles
 ### Quickly run
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.HashMapHangDemo
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.HashMapHangDemo
 ```
 
 ## 🍺 Combined state read invalid combination
@@ -127,7 +127,7 @@ The second state read in the task thread is not twice the value of the first sta
 ### Quickly run
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.InvalidCombinationStateDemo
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.InvalidCombinationStateDemo
 ```
 
 ## 🍺 `long` variable read invalid value
@@ -149,7 +149,7 @@ In the task thread, a long variable whose upper 4 bytes and lower 4 bytes are di
 ### Quickly run
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.InvalidLongDemo
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.InvalidLongDemo
 ```
 
 ## 🍺 the result of concurrency count without synchronization is wrong
@@ -167,7 +167,7 @@ The count value is incorrect.
 ### Quickly run
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.WrongCounterDemo
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.WrongCounterDemo
 ```
 
 ## 🍺 Synchronization on mutable fields
@@ -188,7 +188,7 @@ The final count of Listeners is incorrect.
 ### Quickly run
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.SynchronizationOnMutableFieldDemo
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.SynchronizationOnMutableFieldDemo
 ```
 
 ## 🍺 Deadlock caused by the symmetric locks
@@ -208,7 +208,7 @@ Task thread deadlocked.
 ### Quickly run
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.SymmetricLockDeadlockDemo
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.SymmetricLockDeadlockDemo
 ```
 
 ## 🍺 Livelock caused by reentrant locks
@@ -230,5 +230,5 @@ this is a livelock.
 ### Quickly run
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.ReentrantLockLivelockDemo
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.ReentrantLockLivelockDemo
 ```
