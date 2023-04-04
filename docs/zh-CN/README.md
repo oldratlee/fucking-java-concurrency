@@ -84,7 +84,7 @@ Demo类[`NoPublishDemo`](../../src/main/java/fucking/concurrency/demo/NoPublishD
 ### 快速运行
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.NoPublishDemo
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.NoPublishDemo
 ```
 
 ## 🍺 `HashMap`的死循环
@@ -104,7 +104,7 @@ Demo类[`HashMapHangDemo`](../../src/main/java/fucking/concurrency/demo/HashMapH
 ### 快速运行
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.HashMapHangDemo
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.HashMapHangDemo
 ```
 
 ## 🍺 组合状态读到无效组合
@@ -125,7 +125,7 @@ Demo类[`InvalidCombinationStateDemo`](../../src/main/java/fucking/concurrency/d
 ### 快速运行
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.InvalidCombinationStateDemo
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.InvalidCombinationStateDemo
 ```
 
 ## 🍺 `long`变量读到无效值
@@ -147,7 +147,7 @@ Demo类[`InvalidLongDemo`](../../src/main/java/fucking/concurrency/demo/InvalidL
 ### 快速运行
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.InvalidLongDemo
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.InvalidLongDemo
 ```
 
 ## 🍺 无同步的并发计数结果不对
@@ -165,7 +165,7 @@ Demo类[`WrongCounterDemo`](../../src/main/java/fucking/concurrency/demo/WrongCo
 ### 快速运行
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.WrongCounterDemo
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.WrongCounterDemo
 ```
 
 ## 🍺 在易变域上的同步
@@ -186,7 +186,7 @@ Demo类[`SynchronizationOnMutableFieldDemo`](../../src/main/java/fucking/concurr
 ### 快速运行
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.SynchronizationOnMutableFieldDemo
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.SynchronizationOnMutableFieldDemo
 ```
 
 ## 🍺 对称锁死锁
@@ -205,7 +205,7 @@ Demo类[`SymmetricLockDeadlockDemo`](../../src/main/java/fucking/concurrency/dem
 ### 快速运行
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=fucking.concurrency.demo.SymmetricLockDeadlockDemo
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.SymmetricLockDeadlockDemo
 ```
 
 ## 一些并发的问题讨论和资料
