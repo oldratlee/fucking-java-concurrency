@@ -2,12 +2,13 @@
 
 <p align="center">
 <a href="https://github.com/oldratlee/fucking-java-concurrency/actions/workflows/ci.yaml"><img src="https://img.shields.io/github/actions/workflow/status/oldratlee/fucking-java-concurrency/ci.yaml?branch=master&logo=github&logoColor=white" alt="Github Workflow Build Status"></a>
-<a href="https://openjdk.java.net/"><img src="https://img.shields.io/badge/Java-8+-green?logo=openjdk&logoColor=white" alt="JDK support"></a>
+<a href="https://openjdk.java.net/"><img src="https://img.shields.io/badge/Java-8+-339933?logo=openjdk&logoColor=white" alt="Java support"></a>
 <a href="https://www.apache.org/licenses/LICENSE-2.0.html"><img src="https://img.shields.io/github/license/oldratlee/fucking-java-concurrency?color=4D7A97&logo=apache" alt="License"></a>
-<a href="https://github.com/oldratlee/fucking-java-concurrency/stargazers"><img src="https://img.shields.io/github/stars/oldratlee/fucking-java-concurrency" alt="GitHub Stars"></a>
-<a href="https://github.com/oldratlee/fucking-java-concurrency/fork"><img src="https://img.shields.io/github/forks/oldratlee/fucking-java-concurrency" alt="GitHub Forks"></a>
+<a href="https://github.com/oldratlee/fucking-java-concurrency/stargazers"><img src="https://img.shields.io/github/stars/oldratlee/fucking-java-concurrency?style=flat" alt="GitHub Stars"></a>
+<a href="https://github.com/oldratlee/fucking-java-concurrency/fork"><img src="https://img.shields.io/github/forks/oldratlee/fucking-java-concurrency?style=flat" alt="GitHub Forks"></a>
 <a href="https://github.com/oldratlee/fucking-java-concurrency/graphs/contributors"><img src="https://img.shields.io/github/contributors/oldratlee/fucking-java-concurrency" alt="GitHub Contributors"></a>
 <a href="https://github.com/oldratlee/fucking-java-concurrency"><img src="https://img.shields.io/github/repo-size/oldratlee/fucking-java-concurrency" alt="GitHub repo size"></a>
+<a href="https://gitpod.io/#https://github.com/oldratlee/fucking-java-concurrency"><img src="https://img.shields.io/badge/Gitpod-ready to code-339933?label=gitpod&logo=gitpod&logoColor=white" alt="gitpod: Ready to Code"></a>
 </p>
 
 ----------------------------------------
