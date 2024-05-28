@@ -65,6 +65,10 @@ Examples of concurrency problems you encountered in development are welcome to p
     - [Demo description](#demo-description-7)
     - [Problem statement](#problem-statement-7)
     - [Quickly run](#quickly-run-7)
+- [🍺 Instruction reordering causes non-final field variable read error](#-instruction-reordering-causes-non-final-field-variable-read-error)
+    - [Demo description](#demo-description-8)
+    - [Problem statement](#problem-statement-8)
+    - [Quickly run](#quickly-run-8)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -232,4 +236,24 @@ this is a livelock.
 
 ```bash
 ./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.ReentrantLockLivelockDemo
+```
+
+## 🍺 Instruction reordering causes non-final field variable read error
+
+Demo class [`FinalInitialDemo`](src/main/java/fucking/concurrency/demo/FinalInitialDemo.java).
+
+### Demo description
+
+The writer thread calls the constructor of the class, and the reader thread obtains the member variables of the non-final domain of the class.
+
+### Problem statement
+
+When calling the constructor, instruction reordering may occur, placing non-final domain variables outside the constructor,
+causing the writer and reader threads to obtain the default initial values of the variables.(Instruction ordering does not necessarily occur
+and requires specific hardware and JVM environments).
+
+### Quickly run
+
+```bash
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.FinalInitialDemo
 ```
