@@ -24,7 +24,7 @@ public class FinalInitialDemo {
             int i = a * a;
             if (i == 0) {
                 // On my dev machine, the variable initial always success.
-                // To solve this problem, add volatile to the `a` field and `flag` field.
+                // To solve this problem, add final to the `a` field and `flag` field.
                 System.out.println("Fuck! instruction reordering occurred.");
             }
         }
