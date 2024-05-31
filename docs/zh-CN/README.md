@@ -64,6 +64,10 @@
     - [Demo说明](#demo%E8%AF%B4%E6%98%8E-6)
     - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-6)
     - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-6)
+- [🍺 指令重排序导致非final域变量读取错误](#-指令重排序导致非final域变量读取错误)
+    - [Demo说明](#demo%E8%AF%B4%E6%98%8E-7)
+    - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-7)
+    - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-7)
 - [一些并发的问题讨论和资料](#%E4%B8%80%E4%BA%9B%E5%B9%B6%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98%E8%AE%A8%E8%AE%BA%E5%92%8C%E8%B5%84%E6%96%99)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -207,6 +211,25 @@ Demo类[`SymmetricLockDeadlockDemo`](../../src/main/java/fucking/concurrency/dem
 
 ```bash
 ./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.SymmetricLockDeadlockDemo
+```
+
+## 🍺 指令重排序导致非final域变量读取错误
+
+Demo类[`FinalInitialDemo`](../../src/main/java/fucking/concurrency/demo/FinalInitialDemo.java)。
+
+### Demo说明
+
+writer线程调用类的构造函数，reader线程获取类的非final的成员变量。
+
+### 问题说明
+
+调用构造函数时,可能会发生指令重新排序,将非final域变量放置在构造函数之外,导致writer和reader线程获取变量的默认初始值(指令顺序不一定发生,
+并且需要特定的硬件和 JVM 环境)。
+
+### 快速运行
+
+```bash
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.FinalInitialDemo
 ```
 
 ## 一些并发的问题讨论和资料
