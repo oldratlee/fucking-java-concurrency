@@ -68,6 +68,10 @@
     - [Demo说明](#demo%E8%AF%B4%E6%98%8E-7)
     - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-7)
     - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-7)
+- [🍺 线程池循环引用死锁](#-线程池循环引用死锁)
+  - [Demo说明](#demo%E8%AF%B4%E6%98%8E-8)
+  - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-8)
+  - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-8)
 - [一些并发的问题讨论和资料](#%E4%B8%80%E4%BA%9B%E5%B9%B6%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98%E8%AE%A8%E8%AE%BA%E5%92%8C%E8%B5%84%E6%96%99)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -230,6 +234,22 @@ writer线程调用类的构造函数，reader线程获取类的非final的成员
 
 ```bash
 ./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.FinalInitialDemo
+```
+
+## 🍺 线程池循环引用死锁
+Demo类[`CyclicThreadPoolDeadLockDemo`](../../src/main/java/fucking/concurrency/demo/CyclicThreadPoolDeadLockDemo.java)。
+
+### Demo说明
+该示例展示了在使用线程池时，由于任务间的循环依赖线程池导致死锁的问题，以及如何通过CompletableFuture来避免这种情况。
+
+### 问题说明
+在badCase中，两个线程池pool1和pool2相互提交任务，形成循环依赖。当线程池的线程数耗尽时，所有执行中的任务都在等待其他任务完成，导致死锁。
+goodCase通过使用CompletableFuture的异步链式调用，避免了线程池的阻塞，从而解决了死锁问题。
+
+### 快速运行
+
+```bash
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.CyclicThreadPoolDeadLockDemo
 ```
 
 ## 一些并发的问题讨论和资料

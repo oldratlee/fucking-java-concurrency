@@ -69,6 +69,10 @@ Examples of concurrency problems you encountered in development are welcome to p
     - [Demo description](#demo-description-8)
     - [Problem statement](#problem-statement-8)
     - [Quickly run](#quickly-run-8)
+- [🍺 Cyclic Thread Pool Deadlock](#-cyclic-thread-pool-deadlock)
+  - [Demo Description](#demo-description-9)
+  - [Problem Description](#problem-description-9)
+  - [Quick Run](#quick-run-9)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -256,4 +260,25 @@ and requires specific hardware and JVM environments).
 
 ```bash
 ./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.FinalInitialDemo
+```
+
+## 🍺 Cyclic Thread Pool Deadlock
+
+Demo class [`CyclicThreadPoolDeadLockDemo`](../../src/main/java/fucking/concurrency/demo/CyclicThreadPoolDeadLockDemo.java).
+
+### Demo Description
+
+This example demonstrates the issue of deadlock caused by cyclic dependencies between tasks when using thread pools, 
+and how to avoid this situation using `CompletableFuture`.
+
+### Problem Description
+
+In the `badCase`, two thread pools, `pool1` and `pool2`, submit tasks to each other, forming a cyclic dependency.
+When the thread pool's threads are exhausted, all executing tasks wait for other tasks to complete, leading to a deadlock.
+The `goodCase` resolves the deadlock issue by using asynchronous chained calls with `CompletableFuture`, thus avoiding thread pool blocking.
+
+### Quick Run
+
+```bash
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.CyclicThreadPoolDeadLockDemo
 ```
