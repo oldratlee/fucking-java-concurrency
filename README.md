@@ -1,30 +1,50 @@
 # <div align="center"> 🎏 fucking-java-concurrency</div>
 
 <p align="center">
-<a href="https://github.com/oldratlee/fucking-java-concurrency/actions/workflows/ci.yaml"><img src="https://img.shields.io/github/actions/workflow/status/oldratlee/fucking-java-concurrency/ci.yaml?branch=master&logo=github&logoColor=white" alt="Github Workflow Build Status"></a>
-<a href="https://openjdk.java.net/"><img src="https://img.shields.io/badge/Java-8+-339933?logo=openjdk&logoColor=white" alt="Java support"></a>
-<a href="https://www.apache.org/licenses/LICENSE-2.0.html"><img src="https://img.shields.io/github/license/oldratlee/fucking-java-concurrency?color=4D7A97&logo=apache" alt="License"></a>
-<a href="https://github.com/oldratlee/fucking-java-concurrency/stargazers"><img src="https://img.shields.io/github/stars/oldratlee/fucking-java-concurrency?style=flat" alt="GitHub Stars"></a>
-<a href="https://github.com/oldratlee/fucking-java-concurrency/fork"><img src="https://img.shields.io/github/forks/oldratlee/fucking-java-concurrency?style=flat" alt="GitHub Forks"></a>
-<a href="https://github.com/oldratlee/fucking-java-concurrency/graphs/contributors"><img src="https://img.shields.io/github/contributors/oldratlee/fucking-java-concurrency" alt="GitHub Contributors"></a>
-<a href="https://github.com/oldratlee/fucking-java-concurrency"><img src="https://img.shields.io/github/repo-size/oldratlee/fucking-java-concurrency" alt="GitHub repo size"></a>
-<a href="https://gitpod.io/#https://github.com/oldratlee/fucking-java-concurrency"><img src="https://img.shields.io/badge/Gitpod-ready to code-339933?label=gitpod&logo=gitpod&logoColor=white" alt="gitpod: Ready to Code"></a>
+<a href="https://github.com/oldratlee/fucking-java-concurrency/actions/workflows/ci.yaml">
+  <img src="https://img.shields.io/github/actions/workflow/status/oldratlee/fucking-java-concurrency/ci.yaml?branch=master&logo=github&logoColor=white" alt="Github Workflow Build Status"></a>
+<a href="https://openjdk.java.net/">
+  <img src="https://img.shields.io/badge/Java-8+-339933?logo=openjdk&logoColor=white" alt="Java support"></a>
+<a href="https://www.apache.org/licenses/LICENSE-2.0.html">
+  <img src="https://img.shields.io/github/license/oldratlee/fucking-java-concurrency?color=4D7A97&logo=apache" alt="License"></a>
+<a href="https://github.com/oldratlee/fucking-java-concurrency/stargazers">
+  <img src="https://img.shields.io/github/stars/oldratlee/fucking-java-concurrency?style=flat" alt="GitHub Stars"></a>
+<a href="https://github.com/oldratlee/fucking-java-concurrency/fork">
+  <img src="https://img.shields.io/github/forks/oldratlee/fucking-java-concurrency?style=flat" alt="GitHub Forks"></a>
+<a href="https://github.com/oldratlee/fucking-java-concurrency/graphs/contributors">
+  <img src="https://img.shields.io/github/contributors/oldratlee/fucking-java-concurrency?style=flat" alt="GitHub Contributors"></a>
+<a href="https://github.com/oldratlee/fucking-java-concurrency">
+  <img src="https://img.shields.io/github/repo-size/oldratlee/fucking-java-concurrency?style=flat" alt="GitHub repo size"></a>
+<a href="https://gitpod.io/#https://github.com/oldratlee/fucking-java-concurrency">
+  <img src="https://img.shields.io/badge/Gitpod-ready to code-339933?label=gitpod&logo=gitpod&logoColor=white" alt="gitpod: Ready to Code"></a>
 </p>
 
 ----------------------------------------
 
 📖 English Documentation | [📖 中文文档](docs/zh-CN/README.md)
 
-Simple showcases of `Java` concurrency problems, seeing 🙈 is believing 🐵.
+Minimal demos of `Java` concurrency problems — seeing 🙈 is believing 🐵.
 
-## 🍎 Reasons to organize Demo
+## 🍎 Why these demos
 
-- The actual phenomenon that can be observed 🙈 is more intuitive and more trustworthy than the concurrency principle mentioned 🙊.
-- The `Java` language standard library supports threads, multithreading is heavily used in the language itself (such as `GC`) and applications (the server side).
-- Concurrency program design, in the analysis and implementation, the complexity is greatly increased. If you do not fully understand and systematically analyze the concurrent logic, and write code at will, it is not an exaggeration to describe such a program as "**accidentally**" running with the correct result.  
-    - The demos here do not give explanations and discussions, and they are all entry-level :neckbeard: . For more information, please loop up the concurrency materials by yourself.
+- An observed symptom 🙈 is more intuitive and convincing than a stated
+  concurrency principle 🙊.
+- The `Java` standard library supports threads, and multithreading is
+  heavily used both in the language itself (e.g. `GC`) and in
+  applications (server side).
+- Concurrency greatly increases the complexity of program design,
+  analysis, and implementation. Unless you fully understand and
+  systematically analyze the concurrent logic, writing code at random
+  means it is no exaggeration to say that such a program runs
+  correctly **by accident**.
+    - The demos here come with no explanation or discussion, and all of
+      them are entry-level 🤓 . For more information, look
+      up concurrency material yourself.
 
-Examples of concurrency problems you encountered in development are welcome to provide ([submit Issue](https://github.com/oldratlee/fucking-java-concurrency/issues)) or share ([pull request after Fork](https://github.com/oldratlee/fucking-java-concurrency/fork))! 😘
+Hit a concurrency problem in your own development? Please share it —
+[submit an issue](https://github.com/oldratlee/fucking-java-concurrency/issues)
+or [fork the repo](https://github.com/oldratlee/fucking-java-concurrency/fork)
+and open a pull request! 😘
 
 ----------------------------------------
 
@@ -33,147 +53,196 @@ Examples of concurrency problems you encountered in development are welcome to p
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [🍺 Update without synchronization cannot be read in another thread](#-update-without-synchronization-cannot-be-read-in-another-thread)
+- [🍺 Unsynchronized updates are not visible to other threads](#-unsynchronized-updates-are-not-visible-to-other-threads)
     - [Demo description](#demo-description)
     - [Problem statement](#problem-statement)
-    - [Quickly run](#quickly-run)
-- [🍺 Infinite loop of `HashMap`](#-infinite-loop-of-hashmap)
+    - [Quick run](#quick-run)
+- [🍺 Infinite loop in `HashMap`](#-infinite-loop-in-hashmap)
     - [Demo description](#demo-description-1)
     - [Problem statement](#problem-statement-1)
-    - [Quickly run](#quickly-run-1)
-- [🍺 Combined state read invalid combination](#-combined-state-read-invalid-combination)
+    - [Quick run](#quick-run-1)
+- [🍺 Reading combined state yields an invalid combination](#-reading-combined-state-yields-an-invalid-combination)
     - [Demo description](#demo-description-2)
     - [Problem statement](#problem-statement-2)
-    - [Quickly run](#quickly-run-2)
-- [🍺 `long` variable read invalid value](#-long-variable-read-invalid-value)
+    - [Quick run](#quick-run-2)
+- [🍺 Reading a `long` variable yields an invalid value](#-reading-a-long-variable-yields-an-invalid-value)
     - [Demo description](#demo-description-3)
     - [Problem statement](#problem-statement-3)
-    - [Quickly run](#quickly-run-3)
-- [🍺 the result of concurrency count without synchronization is wrong](#-the-result-of-concurrency-count-without-synchronization-is-wrong)
+    - [Quick run](#quick-run-3)
+- [🍺 Consecutive reads of the same field see different values](#-consecutive-reads-of-the-same-field-see-different-values)
     - [Demo description](#demo-description-4)
     - [Problem statement](#problem-statement-4)
-    - [Quickly run](#quickly-run-4)
-- [🍺 Synchronization on mutable fields](#-synchronization-on-mutable-fields)
+    - [Quick run](#quick-run-4)
+- [🍺 Unsynchronized concurrent counting gives wrong results](#-unsynchronized-concurrent-counting-gives-wrong-results)
     - [Demo description](#demo-description-5)
     - [Problem statement](#problem-statement-5)
-    - [Quickly run](#quickly-run-5)
-- [🍺 Deadlock caused by the symmetric locks](#-deadlock-caused-by-the-symmetric-locks)
+    - [Quick run](#quick-run-5)
+- [🍺 Synchronization on mutable fields](#-synchronization-on-mutable-fields)
     - [Demo description](#demo-description-6)
     - [Problem statement](#problem-statement-6)
-    - [Quickly run](#quickly-run-6)
-- [🍺 Livelock caused by reentrant locks](#-livelock-caused-by-reentrant-locks)
+    - [Quick run](#quick-run-6)
+- [🍺 Deadlock caused by symmetric locks](#-deadlock-caused-by-symmetric-locks)
     - [Demo description](#demo-description-7)
     - [Problem statement](#problem-statement-7)
-    - [Quickly run](#quickly-run-7)
-- [🍺 Instruction reordering causes non-final field variable read error](#-instruction-reordering-causes-non-final-field-variable-read-error)
+    - [Quick run](#quick-run-7)
+- [🍺 Livelock caused by reentrant locks](#-livelock-caused-by-reentrant-locks)
     - [Demo description](#demo-description-8)
     - [Problem statement](#problem-statement-8)
-    - [Quickly run](#quickly-run-8)
-- [🍺 Cyclic Thread Pool Deadlock](#-cyclic-thread-pool-deadlock)
-  - [Demo Description](#demo-description-9)
-  - [Problem Description](#problem-description-9)
-  - [Quick Run](#quick-run-9)
+    - [Quick run](#quick-run-8)
+- [🍺 Instruction reordering causes incorrect reads of non-final fields](#-instruction-reordering-causes-incorrect-reads-of-non-final-fields)
+    - [Demo description](#demo-description-9)
+    - [Problem statement](#problem-statement-9)
+    - [Quick run](#quick-run-9)
+- [🍺 Cyclic thread pool deadlock](#-cyclic-thread-pool-deadlock)
+    - [Demo description](#demo-description-10)
+    - [Problem statement](#problem-statement-10)
+    - [Quick run](#quick-run-10)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ----------------------------------------
 
-## 🍺 Update without synchronization cannot be read in another thread
+## 🍺 Unsynchronized updates are not visible to other threads
 
 Demo class [`NoPublishDemo`](src/main/java/fucking/concurrency/demo/NoPublishDemo.java).
 
 ### Demo description
 
-Set the field `stop` to `true` in the `main` thread to control the exit of the task thread started in `main`.
+The main thread sets the field `stop` to `true` to signal the task
+thread (started in `main`) to exit.
 
 ### Problem statement
 
-After the `main` thread field `stop` is `true`, the task thread continues to run, that is, no new value has been read in the task thread.
+After the main thread sets `stop` to `true`, the task thread keeps
+running — i.e. it never sees the new value.
 
-### Quickly run
+### Quick run
 
 ```bash
 ./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.NoPublishDemo
 ```
 
-## 🍺 Infinite loop of `HashMap`
+## 🍺 Infinite loop in `HashMap`
 
 This problem has been explained in many places.
 
-The Demo class [`HashMapHangDemo`](src/main/java/fucking/concurrency/demo/HashMapHangDemo.java) can reproduce this problem.
+The Demo class [`HashMapHangDemo`](src/main/java/fucking/concurrency/demo/HashMapHangDemo.java)
+can reproduce this problem.
 
 ### Demo description
 
-Two task threads are opened in the main thread to perform the put operation of `HashMap`. The main thread does the get operation.
+The main thread starts two task threads that `put` into the `HashMap`,
+while itself repeatedly performing `get`.
 
 ### Problem statement
 
-The main thread Block is determined by no continuous output, that is, the endless loop of `HashMap` appears.
+The main thread blocks (output stops), i.e. the `HashMap` has entered
+an infinite loop.
 
-### Quickly run
+### Quick run
 
 ```bash
 ./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.HashMapHangDemo
 ```
 
-## 🍺 Combined state read invalid combination
+## 🍺 Reading combined state yields an invalid combination
 
-When programming, multiple state records will be required (state can be a `POJO` object or `int`s, etc.).
+Programs often need to track several related pieces of state (a
+`POJO`, a few `int`s, etc.).
 
-It is often seen that the multi-state read and write code is not synchronized, and the person who write it will naturally ignore the issue of thread safety.
+Multi-state read/write code is frequently left unsynchronized, and
+whoever writes it naturally overlooks thread safety.
 
-Invalid combinations are combinations that have never been set.
+An *invalid combination* is a combination of values that the program
+never actually wrote.
 
 ### Demo description
 
-The main thread modifies multiple states. For the convenience of checking, each write has a fixed relationship: the second state is twice the value of the first state. Read multiple states in a task thread.
+The main thread modifies multiple states. For convenience of checking,
+every write keeps a fixed relationship: the second state is always
+twice the first. A task thread reads the states.
 Demo class [`InvalidCombinationStateDemo`](src/main/java/fucking/concurrency/demo/InvalidCombinationStateDemo.java).
 
 ### Problem statement
 
-The second state read in the task thread is not twice the value of the first state, that is, an invalid value.
+The task thread reads a second state that is not twice the first — a
+combination that was never written.
 
-### Quickly run
+### Quick run
 
 ```bash
 ./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.InvalidCombinationStateDemo
 ```
 
-## 🍺 `long` variable read invalid value
+## 🍺 Reading a `long` variable yields an invalid value
 
-An invalid value is a value that has never been set.
+An invalid value is one that was never written.
 
-Reading and writing of `long` variables is not atomic and will be divided into two 4-byte operations.
+Reads and writes of non-`volatile` `long` and `double` are not guaranteed
+to be atomic.
+
+per the Java Language Specification (§17.7), a single
+read/write of a 64-bit value may be treated as two separate 32-bit
+accesses. On 32-bit JVMs this is necessarily split into two 4-byte
+operations; on 64-bit JVMs it is typically done atomically in practice,
+but the specification still does not guarantee atomicity.
 
 Demo class [`InvalidLongDemo`](src/main/java/fucking/concurrency/demo/InvalidLongDemo.java).
 
 ### Demo description
 
-The main thread modifies the long variable. For the convenience of checking, the upper 4 bytes and the lower 4 bytes of the long value written each time are the same. Read the long variable in the task thread.
+The main thread modifies the `long` variable. For convenience of
+checking, the upper and lower 4 bytes of every value written are
+identical. A task thread reads the `long`.
 
 ### Problem statement
 
-In the task thread, a long variable whose upper 4 bytes and lower 4 bytes are different is read, which is an invalid value.
+The task thread reads a `long` whose upper and lower 4 bytes differ —
+a value that was never written.
 
-### Quickly run
+### Quick run
 
 ```bash
 ./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.InvalidLongDemo
 ```
 
-## 🍺 the result of concurrency count without synchronization is wrong
+## 🍺 Consecutive reads of the same field see different values
+
+Demo class [`InconsistentReadDemo`](src/main/java/fucking/concurrency/demo/InconsistentReadDemo.java).
+
+### Demo description
+
+The main thread increments the plain `count` field in a tight loop.
+A task thread performs two consecutive reads of `count` and reports
+each time the two values differ.
+
+### Problem statement
+
+Two consecutive reads of the same non-volatile field by the same
+thread return different values. For a plain field, each read may
+observe a different write, so a thread must not assume that two reads
+see the same value.
+
+### Quick run
+
+```bash
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.InconsistentReadDemo
+```
+
+## 🍺 Unsynchronized concurrent counting gives wrong results
 
 Demo class [`WrongCounterDemo`](src/main/java/fucking/concurrency/demo/WrongCounterDemo.java).
 
 ### Demo description
 
-Two task threads are opened in the main thread to execute concurrent incrementing counts. Main thread final result check.
+The main thread starts two task threads that increment a shared
+counter concurrently, then checks the final result.
 
 ### Problem statement
 
-The count value is incorrect.
+The final count is incorrect.
 
-### Quickly run
+### Quick run
 
 ```bash
 ./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.WrongCounterDemo
@@ -181,40 +250,45 @@ The count value is incorrect.
 
 ## 🍺 Synchronization on mutable fields
 
-It is common to see synchronization code on a volatile field, and the person who write it will naturally feel that this is safe and correct.  
-\# For problem analysis, see the article [Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N100E7).
+Synchronizing on a `volatile` field is common, and whoever writes it
+naturally assumes this is safe and correct.  
+\# For problem analysis, see the article
+[Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N100E7).
 
 Demo class [`SynchronizationOnMutableFieldDemo`](src/main/java/fucking/concurrency/demo/SynchronizationOnMutableFieldDemo.java).
 
 ### Demo description
 
-Two task threads are opened in the main thread to execute `addListener`. Main thread final result check.
+The main thread starts two task threads that call `addListener`, then
+checks the final result.
 
 ### Problem statement
 
-The final count of Listeners is incorrect.
+The final listener count is incorrect.
 
-### Quickly run
+### Quick run
 
 ```bash
 ./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.SynchronizationOnMutableFieldDemo
 ```
 
-## 🍺 Deadlock caused by the symmetric locks
+## 🍺 Deadlock caused by symmetric locks
 
-\# For problem analysis, see the article [Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N101C1)
+\# For problem analysis, see the article
+[Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N101C1)
 
 Demo class [`SymmetricLockDeadlockDemo`](src/main/java/fucking/concurrency/demo/SymmetricLockDeadlockDemo.java).
 
 ### Demo description
 
-Two task threads are opened in the main thread for execution.
+The main thread starts two task threads, each of which takes the two
+locks in the opposite order from the other.
 
 ### Problem statement
 
-Task thread deadlocked.
+The task threads deadlock.
 
-### Quickly run
+### Quick run
 
 ```bash
 ./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.SymmetricLockDeadlockDemo
@@ -222,62 +296,71 @@ Task thread deadlocked.
 
 ## 🍺 Livelock caused by reentrant locks
 
-\# For a problem description, see the paragraph about livelocks [in this article](https://www.baeldung.com/cs/deadlock-livelock-starvation#livelock)
+\# For a problem description, see the paragraph about livelocks in
+[the article](https://www.baeldung.com/cs/deadlock-livelock-starvation#livelock)
 
 Demo class [`ReentrantLockLivelockDemo`](src/main/java/fucking/concurrency/demo/ReentrantLockLivelockDemo.java).
 
 ### Demo description
 
-Two task threads are trying to acquire a lock that the other thread holds while holding their own lock.
+Two task threads try to acquire the lock the other thread holds while
+holding their own lock.
 
 ### Problem statement
 
-While the threads are releasing their own lock constantly, they are also re-locking it immediately, denying the other thread
-a chance to acquire both locks. Since both threads are not blocked from executing but blocked from doing meaningful work,
-this is a livelock.
+The threads release their own lock and immediately re-acquire it,
+denying the other thread a chance to acquire both locks. Since both
+threads keep executing but never make progress, this is a livelock.
 
-### Quickly run
+### Quick run
 
 ```bash
 ./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.ReentrantLockLivelockDemo
 ```
 
-## 🍺 Instruction reordering causes non-final field variable read error
+## 🍺 Instruction reordering causes incorrect reads of non-final fields
 
 Demo class [`FinalInitialDemo`](src/main/java/fucking/concurrency/demo/FinalInitialDemo.java).
 
 ### Demo description
 
-The writer thread calls the constructor of the class, and the reader thread obtains the member variables of the non-final domain of the class.
+The writer thread calls the class constructor while the reader thread
+reads the class's non-final fields.
 
 ### Problem statement
 
-When calling the constructor, instruction reordering may occur, placing non-final domain variables outside the constructor,
-causing the writer and reader threads to obtain the default initial values of the variables.(Instruction ordering does not necessarily occur
-and requires specific hardware and JVM environments).
+When the constructor runs, instruction reordering can move the stores
+of non-final fields outside it, so the reader thread may observe the
+fields' default values instead of the values set by the constructor.
+(Reordering is not guaranteed; it requires specific hardware and JVM
+conditions.)
 
-### Quickly run
+### Quick run
 
 ```bash
 ./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.FinalInitialDemo
 ```
 
-## 🍺 Cyclic Thread Pool Deadlock
+## 🍺 Cyclic thread pool deadlock
 
-Demo class [`CyclicThreadPoolDeadLockDemo`](../../src/main/java/fucking/concurrency/demo/CyclicThreadPoolDeadLockDemo.java).
+Demo class [`CyclicThreadPoolDeadLockDemo`](src/main/java/fucking/concurrency/demo/CyclicThreadPoolDeadLockDemo.java).
 
-### Demo Description
+### Demo description
 
-This example demonstrates the issue of deadlock caused by cyclic dependencies between tasks when using thread pools, 
-and how to avoid this situation using `CompletableFuture`.
+This example demonstrates the deadlock caused by cyclic dependencies
+between tasks when using thread pools, and how to avoid it with
+`CompletableFuture`.
 
-### Problem Description
+### Problem statement
 
-In the `badCase`, two thread pools, `pool1` and `pool2`, submit tasks to each other, forming a cyclic dependency.
-When the thread pool's threads are exhausted, all executing tasks wait for other tasks to complete, leading to a deadlock.
-The `goodCase` resolves the deadlock issue by using asynchronous chained calls with `CompletableFuture`, thus avoiding thread pool blocking.
+In the `badCase`, two thread pools, `pool1` and `pool2`, submit tasks
+to each other, forming a cyclic dependency.
+When the pools' threads are exhausted, every running task waits for
+another task to complete, and the pools deadlock.
+The `goodCase` replaces this with asynchronous chained calls using
+`CompletableFuture`, so no pool thread blocks.
 
-### Quick Run
+### Quick run
 
 ```bash
 ./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.CyclicThreadPoolDeadLockDemo

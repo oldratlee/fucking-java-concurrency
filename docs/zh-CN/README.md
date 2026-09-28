@@ -1,33 +1,39 @@
 # <div align="center"> 🎏 fucking-java-concurrency</div>
 
 <p align="center">
-<a href="https://github.com/oldratlee/fucking-java-concurrency/actions/workflows/ci.yaml"><img src="https://img.shields.io/github/actions/workflow/status/oldratlee/fucking-java-concurrency/ci.yaml?branch=master&logo=github&logoColor=white" alt="Github Workflow Build Status"></a>
-<a href="https://openjdk.java.net/"><img src="https://img.shields.io/badge/Java-8+-339933?logo=openjdk&logoColor=white" alt="Java support"></a>
-<a href="https://www.apache.org/licenses/LICENSE-2.0.html"><img src="https://img.shields.io/github/license/oldratlee/fucking-java-concurrency?color=4D7A97&logo=apache" alt="License"></a>
-<a href="https://github.com/oldratlee/fucking-java-concurrency/stargazers"><img src="https://img.shields.io/github/stars/oldratlee/fucking-java-concurrency?style=flat" alt="GitHub Stars"></a>
-<a href="https://github.com/oldratlee/fucking-java-concurrency/fork"><img src="https://img.shields.io/github/forks/oldratlee/fucking-java-concurrency?style=flat" alt="GitHub Forks"></a>
-<a href="https://github.com/oldratlee/fucking-java-concurrency/graphs/contributors"><img src="https://img.shields.io/github/contributors/oldratlee/fucking-java-concurrency" alt="GitHub Contributors"></a>
-<a href="https://github.com/oldratlee/fucking-java-concurrency"><img src="https://img.shields.io/github/repo-size/oldratlee/fucking-java-concurrency" alt="GitHub repo size"></a>
-<a href="https://gitpod.io/#https://github.com/oldratlee/fucking-java-concurrency"><img src="https://img.shields.io/badge/Gitpod-ready to code-339933?label=gitpod&logo=gitpod&logoColor=white" alt="gitpod: Ready to Code"></a>
+<a href="https://github.com/oldratlee/fucking-java-concurrency/actions/workflows/ci.yaml">
+  <img src="https://img.shields.io/github/actions/workflow/status/oldratlee/fucking-java-concurrency/ci.yaml?branch=master&logo=github&logoColor=white" alt="Github Workflow Build Status"></a>
+<a href="https://openjdk.java.net/">
+  <img src="https://img.shields.io/badge/Java-8+-339933?logo=openjdk&logoColor=white" alt="Java support"></a>
+<a href="https://www.apache.org/licenses/LICENSE-2.0.html">
+  <img src="https://img.shields.io/github/license/oldratlee/fucking-java-concurrency?color=4D7A97&logo=apache" alt="License"></a>
+<a href="https://github.com/oldratlee/fucking-java-concurrency/stargazers">
+  <img src="https://img.shields.io/github/stars/oldratlee/fucking-java-concurrency?style=flat" alt="GitHub Stars"></a>
+<a href="https://github.com/oldratlee/fucking-java-concurrency/fork">
+  <img src="https://img.shields.io/github/forks/oldratlee/fucking-java-concurrency?style=flat" alt="GitHub Forks"></a>
+<a href="https://github.com/oldratlee/fucking-java-concurrency/graphs/contributors">
+  <img src="https://img.shields.io/github/contributors/oldratlee/fucking-java-concurrency?style=flat" alt="GitHub Contributors"></a>
+<a href="https://github.com/oldratlee/fucking-java-concurrency">
+  <img src="https://img.shields.io/github/repo-size/oldratlee/fucking-java-concurrency?style=flat" alt="GitHub repo size"></a>
+<a href="https://gitpod.io/#https://github.com/oldratlee/fucking-java-concurrency">
+  <img src="https://img.shields.io/badge/Gitpod-ready to code-339933?label=gitpod&logo=gitpod&logoColor=white" alt="gitpod: Ready to Code"></a>
 </p>
 
 ----------------------------------------
 
 [📖 English Documentation](../../README.md) | 📖 中文文档
 
-👉 通过Demo演示出`Java`中并发问题。
+👉 用 Demo 演示 `Java` 中的并发问题——眼见为实 🙈。
 
-## 🍎 整理Demo的原因
+## 🍎 整理 Demo 的原因
 
+- 可以观察到的实际现象 🙈，比口头讲述的并发原则 🙊 更直观、更可信。
+- `Java` 标准库支持线程，语言本身（如 `GC`）以及应用（服务器端）中会重度使用多线程。
+- 并发大大增加了程序设计、分析和实现的复杂度。
+  如果不充分理解和系统分析并发逻辑就随意写代码，这样的程序用 **『碰巧』** 能运行出正确结果来形容一点都不为过。
+    - 这里的 Demo 没有给出解释和讨论，并且都是入门级的 🤓 ，更多了解请参见[一些并发的问题讨论和资料](#一些并发的问题讨论和资料)。
 
-- 可以观察到的实际现象 🙈 比 说说的并发原则 🙊 更直观更可信。 
-- `Java`语言标准库支持线程，语言本身（如`GC`）以及应用（服务器端`the server side`）中会重度使用多线程。
-- 并发程序设计在分析和实现中，复杂度大大增加。
-    如果不充分理解和系统分析并发逻辑，随意写代码，这样的程序用 **『碰巧』** 能运行出正确结果 来形容一点都不为过。
-
-这里的Demo没有给出解释和讨论，并且都是入门级的 :neckbeard: ，更多了解请参见[一些并发的问题讨论和资料](#一些并发的问题讨论和资料)。
-
-你在开发中碰到的并发问题的例子，欢迎提供（[提交Issue](https://github.com/oldratlee/fucking-java-concurrency/issues))和分享（[Fork后提交代码](https://github.com/oldratlee/fucking-java-concurrency/fork)）！ 😘
+你在开发中碰到的并发问题的例子，欢迎提供（[提交Issue](https://github.com/oldratlee/fucking-java-concurrency/issues)）和分享（[Fork后提交代码](https://github.com/oldratlee/fucking-java-concurrency/fork)）！ 😘
 
 ----------------------------------------
 
@@ -52,26 +58,34 @@
     - [Demo说明](#demo%E8%AF%B4%E6%98%8E-3)
     - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-3)
     - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-3)
-- [🍺 无同步的并发计数结果不对](#-%E6%97%A0%E5%90%8C%E6%AD%A5%E7%9A%84%E5%B9%B6%E5%8F%91%E8%AE%A1%E6%95%B0%E7%BB%93%E6%9E%9C%E4%B8%8D%E5%AF%B9)
+- [🍺 同一个字段连续两次读到的值不一致](#-%E5%90%8C%E4%B8%80%E4%B8%AA%E5%AD%97%E6%AE%B5%E8%BF%9E%E7%BB%AD%E4%B8%A4%E6%AC%A1%E8%AF%BB%E5%88%B0%E7%9A%84%E5%80%BC%E4%B8%8D%E4%B8%80%E8%87%B4)
     - [Demo说明](#demo%E8%AF%B4%E6%98%8E-4)
     - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-4)
     - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-4)
-- [🍺 在易变域上的同步](#-%E5%9C%A8%E6%98%93%E5%8F%98%E5%9F%9F%E4%B8%8A%E7%9A%84%E5%90%8C%E6%AD%A5)
+- [🍺 无同步的并发计数结果不对](#-%E6%97%A0%E5%90%8C%E6%AD%A5%E7%9A%84%E5%B9%B6%E5%8F%91%E8%AE%A1%E6%95%B0%E7%BB%93%E6%9E%9C%E4%B8%8D%E5%AF%B9)
     - [Demo说明](#demo%E8%AF%B4%E6%98%8E-5)
     - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-5)
     - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-5)
-- [🍺 对称锁死锁](#-%E5%AF%B9%E7%A7%B0%E9%94%81%E6%AD%BB%E9%94%81)
+- [🍺 在易变域上的同步](#-%E5%9C%A8%E6%98%93%E5%8F%98%E5%9F%9F%E4%B8%8A%E7%9A%84%E5%90%8C%E6%AD%A5)
     - [Demo说明](#demo%E8%AF%B4%E6%98%8E-6)
     - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-6)
     - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-6)
-- [🍺 指令重排序导致非final域变量读取错误](#-指令重排序导致非final域变量读取错误)
+- [🍺 对称锁死锁](#-%E5%AF%B9%E7%A7%B0%E9%94%81%E6%AD%BB%E9%94%81)
     - [Demo说明](#demo%E8%AF%B4%E6%98%8E-7)
     - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-7)
     - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-7)
-- [🍺 线程池循环引用死锁](#-线程池循环引用死锁)
-  - [Demo说明](#demo%E8%AF%B4%E6%98%8E-8)
-  - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-8)
-  - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-8)
+- [🍺 可重入锁导致的活锁](#-%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81%E5%AF%BC%E8%87%B4%E7%9A%84%E6%B4%BB%E9%94%81)
+    - [Demo说明](#demo%E8%AF%B4%E6%98%8E-8)
+    - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-8)
+    - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-8)
+- [🍺 指令重排序导致非final域变量读取错误](#-%E6%8C%87%E4%BB%A4%E9%87%8D%E6%8E%92%E5%BA%8F%E5%AF%BC%E8%87%B4%E9%9D%9Efinal%E5%9F%9F%E5%8F%98%E9%87%8F%E8%AF%BB%E5%8F%96%E9%94%99%E8%AF%AF)
+    - [Demo说明](#demo%E8%AF%B4%E6%98%8E-9)
+    - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-9)
+    - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-9)
+- [🍺 线程池循环引用死锁](#-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8%E6%AD%BB%E9%94%81)
+    - [Demo说明](#demo%E8%AF%B4%E6%98%8E-10)
+    - [问题说明](#%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E-10)
+    - [快速运行](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C-10)
 - [一些并发的问题讨论和资料](#%E4%B8%80%E4%BA%9B%E5%B9%B6%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98%E8%AE%A8%E8%AE%BA%E5%92%8C%E8%B5%84%E6%96%99)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -88,7 +102,7 @@ Demo类[`NoPublishDemo`](../../src/main/java/fucking/concurrency/demo/NoPublishD
 
 ### 问题说明
 
-在主线程属性`stop`为`true`后，但任务线程持续运行，即任务线程中一直没有读到新值。
+在主线程把`stop`设置为`true`后，任务线程仍在持续运行，即任务线程一直没有读到新值。
 
 ### 快速运行
 
@@ -108,7 +122,7 @@ Demo类[`HashMapHangDemo`](../../src/main/java/fucking/concurrency/demo/HashMapH
 
 ### 问题说明
 
-通过没有持续的输出判定主线程`Block`，即`HashMap`的出现死循环。
+输出停止，说明主线程`Block`了，即`HashMap`出现了死循环。
 
 ### 快速运行
 
@@ -141,7 +155,10 @@ Demo类[`InvalidCombinationStateDemo`](../../src/main/java/fucking/concurrency/d
 
 无效值 是指 从来没有设置过的值。
 
-`long`变量读写不是原子的，会分为2次4字节操作。
+非`volatile`的`long`/`double`变量的读写不保证原子性。
+
+按JLS §17.7，对64位值的单次读写可能被当作两次独立的32位访问。
+32位JVM上通常拆成2次4字节操作；64位JVM上通常能原子完成，但规范依然不保证原子性。
 
 Demo类[`InvalidLongDemo`](../../src/main/java/fucking/concurrency/demo/InvalidLongDemo.java)。
 
@@ -159,13 +176,31 @@ Demo类[`InvalidLongDemo`](../../src/main/java/fucking/concurrency/demo/InvalidL
 ./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.InvalidLongDemo
 ```
 
+## 🍺 同一个字段连续两次读到的值不一致
+
+Demo类[`InconsistentReadDemo`](../../src/main/java/fucking/concurrency/demo/InconsistentReadDemo.java)。
+
+### Demo说明
+
+主线程在死循环中递增普通的`count`字段。任务线程对`count`连续读取两次，两次值不同时就记录一次。
+
+### 问题说明
+
+同一个线程对同一个非`volatile`字段连续读取两次，读到了不同的值。普通字段的每次读都可能观察到不同的写入，因此不能假设两次读到的值相同。
+
+### 快速运行
+
+```bash
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.InconsistentReadDemo
+```
+
 ## 🍺 无同步的并发计数结果不对
 
 Demo类[`WrongCounterDemo`](../../src/main/java/fucking/concurrency/demo/WrongCounterDemo.java)。
 
 ### Demo说明
 
-主线程中开启2个任务线程执行并发递增计数。主线程最终结果检查。
+主线程中开启2个任务线程执行并发递增计数，然后检查最终结果。
 
 ### 问题说明
 
@@ -186,7 +221,7 @@ Demo类[`SynchronizationOnMutableFieldDemo`](../../src/main/java/fucking/concurr
 
 ### Demo说明
 
-主线程中开启2个任务线程执行`addListener`。主线程最终结果检查。
+主线程中开启2个任务线程执行`addListener`，然后检查最终结果。
 
 ### 问题说明
 
@@ -205,7 +240,7 @@ Demo类[`SymmetricLockDeadlockDemo`](../../src/main/java/fucking/concurrency/dem
 
 ### Demo说明
 
-主线程中开启2个任务线程执行。
+主线程中开启2个任务线程，每个线程以与对方相反的顺序获取两把锁。
 
 ### 问题说明
 
@@ -217,18 +252,38 @@ Demo类[`SymmetricLockDeadlockDemo`](../../src/main/java/fucking/concurrency/dem
 ./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.SymmetricLockDeadlockDemo
 ```
 
+## 🍺 可重入锁导致的活锁
+
+\# 问题描述见[这篇文章](https://www.baeldung.com/cs/deadlock-livelock-starvation#livelock)中关于活锁（livelock）的段落。
+
+Demo类[`ReentrantLockLivelockDemo`](../../src/main/java/fucking/concurrency/demo/ReentrantLockLivelockDemo.java)。
+
+### Demo说明
+
+两个任务线程各自持有自己的锁，同时尝试获取对方持有的锁。
+
+### 问题说明
+
+线程不断释放自己的锁后又立刻重新获取，导致对方始终没有机会拿到两把锁。两个线程虽然一直在执行，却始终无法推进，这就是活锁。
+
+### 快速运行
+
+```bash
+./mvnw compile exec:java -Dexec.mainClass=fucking.concurrency.demo.ReentrantLockLivelockDemo
+```
+
 ## 🍺 指令重排序导致非final域变量读取错误
 
 Demo类[`FinalInitialDemo`](../../src/main/java/fucking/concurrency/demo/FinalInitialDemo.java)。
 
 ### Demo说明
 
-writer线程调用类的构造函数，reader线程获取类的非final的成员变量。
+writer线程调用类的构造函数，reader线程读取类的非final成员变量。
 
 ### 问题说明
 
-调用构造函数时,可能会发生指令重新排序,将非final域变量放置在构造函数之外,导致writer和reader线程获取变量的默认初始值(指令顺序不一定发生,
-并且需要特定的硬件和 JVM 环境)。
+调用构造函数时，可能会发生指令重排序，把非final域变量的赋值放到构造函数之外，导致reader线程读到变量的默认初始值，
+而不是构造函数中写入的值（指令重排序不一定发生，并且需要特定的硬件和JVM环境）。
 
 ### 快速运行
 
@@ -237,14 +292,18 @@ writer线程调用类的构造函数，reader线程获取类的非final的成员
 ```
 
 ## 🍺 线程池循环引用死锁
+
 Demo类[`CyclicThreadPoolDeadLockDemo`](../../src/main/java/fucking/concurrency/demo/CyclicThreadPoolDeadLockDemo.java)。
 
 ### Demo说明
-该示例展示了在使用线程池时，由于任务间的循环依赖线程池导致死锁的问题，以及如何通过CompletableFuture来避免这种情况。
+
+该示例展示了在使用线程池时，由于任务间的循环依赖导致线程池死锁的问题，以及如何通过`CompletableFuture`来避免这种情况。
 
 ### 问题说明
-在badCase中，两个线程池pool1和pool2相互提交任务，形成循环依赖。当线程池的线程数耗尽时，所有执行中的任务都在等待其他任务完成，导致死锁。
-goodCase通过使用CompletableFuture的异步链式调用，避免了线程池的阻塞，从而解决了死锁问题。
+
+在`badCase`中，两个线程池`pool1`和`pool2`相互提交任务，形成循环依赖。
+当线程池的线程耗尽时，所有执行中的任务都在等待其他任务完成，导致死锁。
+`goodCase`改用`CompletableFuture`的异步链式调用，避免了线程池线程的阻塞，从而解决了死锁问题。
 
 ### 快速运行
 
