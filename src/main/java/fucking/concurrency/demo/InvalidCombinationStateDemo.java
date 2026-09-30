@@ -21,24 +21,25 @@ public class InvalidCombinationStateDemo {
     }
 
     private static class CombinationStatTask implements Runnable {
-        // For combined state, adding volatile does not solve the problem
+        // For a combination state, adding volatile does not solve the problem
         volatile int state1;
         volatile int state2;
 
         @Override
         public void run() {
-            int c = 0;
+            int occurTimes = 0;
             for (long i = 0; ; i++) {
                 int i1 = state1;
                 int i2 = state2;
                 if (i1 * 2 != i2) {
-                    c++;
-                    System.err.printf("Fuck! Got invalid CombinationStat!! check time=%s, happen time=%s(%s%%), count value=%s|%s%n",
-                            i + 1, c, (float) c / (i + 1) * 100, i1, i2);
+                    occurTimes++;
+                    System.err.printf("Fuck! Got invalid combination state!!"
+                                    + " check times=%s, occur times=%s(%s%%), state1=%s, state2=%s%n",
+                            i + 1, occurTimes, (float) occurTimes / (i + 1) * 100, i1, i2);
                 } else {
-                    // if remove blew output,
-                    // the probability of invalid combination on my dev machine goes from ~5% to ~0.1%
-                    System.out.printf("Emm... %s|%s%n", i1, i2);
+                    // If the output below is removed,
+                    // the probability of an invalid combination on my dev machine goes from ~5% to ~0.1%
+                    System.out.printf("Emm... state1=%s, state2=%s%n", i1, i2);
                 }
             }
         }

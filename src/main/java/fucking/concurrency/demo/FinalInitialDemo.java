@@ -23,8 +23,8 @@ public class FinalInitialDemo {
         if (flag) {
             int i = a * a;
             if (i == 0) {
-                // On my dev machine, the variable initial always success.
-                // To solve this problem, add final to the `a` field and `flag` field.
+                // On my dev machine, variable initialization always succeeds.
+                // To solve this problem, make the `a` and `flag` fields final.
                 System.out.println("Fuck! instruction reordering occurred.");
             }
         }

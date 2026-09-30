@@ -11,7 +11,7 @@ public class WrongCounterDemo {
     public static void main(String[] args) throws Exception {
         WrongCounterDemo demo = new WrongCounterDemo();
 
-        System.out.println("Start task thread!");
+        System.out.println("Start task threads!");
         Thread thread1 = new Thread(demo.getConcurrencyCheckTask());
         thread1.start();
         Thread thread2 = new Thread(demo.getConcurrencyCheckTask());
@@ -23,11 +23,12 @@ public class WrongCounterDemo {
         int actualCounter = demo.counter;
         int expectedCount = INC_COUNT * 2;
         if (actualCounter != expectedCount) {
-            // Even if volatile is added to the counter field,
-            // On my dev machine, it's almost must occur!
+            // Even with volatile on the counter field,
+            // On my dev machine, it almost always occurs!
             // Simple and safe solution:
             //   use AtomicInteger
-            System.err.printf("Fuck! Got wrong count!! actual %s, expected: %s.%n", actualCounter, expectedCount);
+            System.err.printf("Fuck! Got wrong count!! actual %s, expected %s.%n",
+                    actualCounter, expectedCount);
         } else {
             System.out.println("Wow... Got right count!");
         }

@@ -17,8 +17,8 @@ public class InvalidLongDemo {
 
         for (int i = 0; ; i++) {
             @SuppressWarnings("UnnecessaryLocalVariable")
-            final long l = i;
-            demo.count = l << 32 | l;
+            final long x = i;
+            demo.count = x << 32 | x;
         }
     }
 
@@ -30,18 +30,18 @@ public class InvalidLongDemo {
         @Override
         @SuppressWarnings("InfiniteLoopStatement")
         public void run() {
-            int c = 0;
+            int occurTimes = 0;
             for (int i = 0; ; i++) {
-                long l = count;
-                long high = l >>> 32;
-                long low = l & 0xFFFFFFFFL;
+                long x = count;
+                long high = x >>> 32;
+                long low = x & 0xFFFFFFFFL;
                 if (high != low) {
-                    c++;
-                    System.err.printf("Fuck! Got invalid long!! check time=%s, happen time=%s(%s%%), count value=%s|%s%n",
-                            i + 1, c, (float) c / (i + 1) * 100, high, low);
+                    occurTimes++;
+                    System.err.printf("Fuck! Got invalid long!! check times=%s, occur times=%s(%s%%), high=%s, low=%s%n",
+                            i + 1, occurTimes, (float) occurTimes / (i + 1) * 100, high, low);
                 } else {
-                    // If remove this output, invalid long is not observed on my dev machine
-                    System.out.printf("Emm... %s|%s%n", high, low);
+                    // If this output is removed, an invalid long is not observed on my dev machine
+                    System.out.printf("Emm... high=%s, low=%s%n", high, low);
                 }
             }
         }

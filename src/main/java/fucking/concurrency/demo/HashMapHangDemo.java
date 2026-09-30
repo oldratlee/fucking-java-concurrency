@@ -23,14 +23,14 @@ public class HashMapHangDemo {
         thread = new Thread(demo.getConcurrencyCheckTask());
         thread.start();
 
-        System.out.println("Start get in main!");
+        System.out.println("Start the get loop in main!");
         for (int i = 0; ; ++i) {
-            for (int j = 0; j < 10000; ++j) {
-                demo.holder.get(j);
+            for (int key = 0; key < 10000; ++key) {
+                demo.holder.get(key);
 
-                // If the hashmap occurs hang problem, the following output will not appear again.
+                // If the HashMap hangs, the following output will not appear again.
                 // On my dev machine, this problem is easily observed in the first round.
-                System.out.printf("Got key %s in round %s%n", j, i);
+                System.out.printf("Get key %s in round %s%n", key, i);
             }
         }
     }

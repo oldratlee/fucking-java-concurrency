@@ -26,17 +26,17 @@ public class InconsistentReadDemo {
         @Override
         @SuppressWarnings({"InfiniteLoopStatement", "ConstantConditions"})
         public void run() {
-            int c = 0;
+            int occurTimes = 0;
             for (int i = 0; ; i++) {
                 // 2 consecutive reads in the same thread
-                int c1 = count;
-                int c2 = count;
-                if (c1 != c2) {
-                    c++;
+                int read1 = count;
+                int read2 = count;
+                if (read1 != read2) {
+                    occurTimes++;
                     // On my dev machine,
                     // a batch of inconsistent reads can be observed when the process starts
-                    System.err.printf("Fuck! Got inconsistent read!! check time=%s, happen time=%s(%s%%), 1=%s, 2=%s%n",
-                            i + 1, c, (float) c / (i + 1) * 100, c1, c2);
+                    System.err.printf("Fuck! Got inconsistent read!! check times=%s, occur times=%s(%s%%), read1=%s, read2=%s%n",
+                            i + 1, occurTimes, (float) occurTimes / (i + 1) * 100, read1, read2);
                 }
             }
         }

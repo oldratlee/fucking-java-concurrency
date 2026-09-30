@@ -31,7 +31,7 @@ public class NoPublishDemo {
         @SuppressWarnings({"WhileLoopSpinsOnField", "StatementWithEmptyBody"})
         public void run() {
             System.out.println("ConcurrencyCheckTask started!");
-            // If the value of stop is visible in the main thread, the loop will exit.
+            // If the task thread sees the value of stop written by main, the loop will exit.
             // On my dev machine, the loop almost never exits!
             // Simple and safe solution:
             //   add volatile to the `stop` field.
