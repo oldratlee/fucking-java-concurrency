@@ -9,8 +9,7 @@ import java.util.Random;
 public class InvalidCombinationStateDemo {
     public static void main(String[] args) {
         CombinationStatTask task = new CombinationStatTask();
-        Thread thread = new Thread(task);
-        thread.start();
+        new Thread(task).start();
 
         Random random = new Random();
         while (true) {

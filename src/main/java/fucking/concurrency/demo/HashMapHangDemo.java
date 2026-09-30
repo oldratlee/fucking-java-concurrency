@@ -9,24 +9,22 @@ import java.util.Random;
  * @see <a href="http://coolshell.cn/articles/9606.html">Infinite loop of Java HashMap</a> by <a href="http://github.com/haoel">@haoel</a>
  */
 public class HashMapHangDemo {
-    private final Map<Integer, Object> holder = new HashMap<>();
+    private static final Map<Integer, Object> holder = new HashMap<>();
 
     @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) {
-        HashMapHangDemo demo = new HashMapHangDemo();
         for (int i = 0; i < 100; i++) {
-            demo.holder.put(i, null);
+            holder.put(i, null);
         }
 
-        Thread thread = new Thread(demo.getConcurrencyCheckTask());
-        thread.start();
-        thread = new Thread(demo.getConcurrencyCheckTask());
-        thread.start();
+        // start 2 tasks
+        new Thread(new ConcurrencyTask()).start();
+        new Thread(new ConcurrencyTask()).start();
 
         System.out.println("Start the get loop in main!");
         for (int i = 0; ; ++i) {
             for (int key = 0; key < 10000; ++key) {
-                demo.holder.get(key);
+                holder.get(key);
 
                 // If the HashMap hangs, the following output will not appear again.
                 // On my dev machine, this problem is easily observed in the first round.
@@ -35,11 +33,7 @@ public class HashMapHangDemo {
         }
     }
 
-    ConcurrencyTask getConcurrencyCheckTask() {
-        return new ConcurrencyTask();
-    }
-
-    private class ConcurrencyTask implements Runnable {
+    private static class ConcurrencyTask implements Runnable {
         private final Random random = new Random();
 
         @Override

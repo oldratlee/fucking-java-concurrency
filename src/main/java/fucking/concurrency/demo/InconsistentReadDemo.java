@@ -4,25 +4,18 @@ package fucking.concurrency.demo;
  * @author Jerry Lee (oldratlee at gmail dot com)
  */
 public class InconsistentReadDemo {
-    private int count = 1;
+    private static int count = 1;
 
     @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) {
-        InconsistentReadDemo demo = new InconsistentReadDemo();
-
-        Thread thread = new Thread(demo.getConcurrencyCheckTask());
-        thread.start();
+        new Thread(new ConcurrencyCheckTask()).start();
 
         while (true) {
-            demo.count++;
+            count++;
         }
     }
 
-    ConcurrencyCheckTask getConcurrencyCheckTask() {
-        return new ConcurrencyCheckTask();
-    }
-
-    private class ConcurrencyCheckTask implements Runnable {
+    private static class ConcurrencyCheckTask implements Runnable {
         @Override
         @SuppressWarnings({"InfiniteLoopStatement", "ConstantConditions"})
         public void run() {

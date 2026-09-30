@@ -4,29 +4,22 @@ package fucking.concurrency.demo;
  * @author Jerry Lee(oldratlee at gmail dot com)
  */
 public class InvalidLongDemo {
-    private long count = 0;
+    private static long count = 0;
 
     @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) {
         // LoadMaker.makeLoad();
 
-        InvalidLongDemo demo = new InvalidLongDemo();
-
-        Thread thread = new Thread(demo.getConcurrencyCheckTask());
-        thread.start();
+        new Thread(new ConcurrencyCheckTask()).start();
 
         for (int i = 0; ; i++) {
             @SuppressWarnings("UnnecessaryLocalVariable")
             final long x = i;
-            demo.count = x << 32 | x;
+            count = x << 32 | x;
         }
     }
 
-    ConcurrencyCheckTask getConcurrencyCheckTask() {
-        return new ConcurrencyCheckTask();
-    }
-
-    private class ConcurrencyCheckTask implements Runnable {
+    private static class ConcurrencyCheckTask implements Runnable {
         @Override
         @SuppressWarnings("InfiniteLoopStatement")
         public void run() {

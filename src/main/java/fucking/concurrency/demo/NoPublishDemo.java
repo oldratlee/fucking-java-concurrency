@@ -6,27 +6,20 @@ package fucking.concurrency.demo;
  * @author Jerry Lee (oldratlee at gmail dot com)
  */
 public class NoPublishDemo {
-    private boolean stop = false;
+    private static boolean stop = false;
 
     public static void main(String[] args) throws Exception {
         // LoadMaker.makeLoad();
 
-        NoPublishDemo demo = new NoPublishDemo();
-
-        Thread thread = new Thread(demo.getConcurrencyCheckTask());
-        thread.start();
+        new Thread(new ConcurrencyCheckTask()).start();
 
         Thread.sleep(1000);
         System.out.println("Set stop to true in main!");
-        demo.stop = true;
+        stop = true;
         System.out.println("Exit main.");
     }
 
-    ConcurrencyCheckTask getConcurrencyCheckTask() {
-        return new ConcurrencyCheckTask();
-    }
-
-    private class ConcurrencyCheckTask implements Runnable {
+    private static class ConcurrencyCheckTask implements Runnable {
         @Override
         @SuppressWarnings({"WhileLoopSpinsOnField", "StatementWithEmptyBody"})
         public void run() {
