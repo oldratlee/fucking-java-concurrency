@@ -6,75 +6,76 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author Beat Richartz
+ * @see SymmetricLockDeadlockDemo
  */
 public class ReentrantLockLivelockDemo {
-    private static final Lock lock1 = new ReentrantLock();
-    private static final Lock lock2 = new ReentrantLock();
-
     public static void main(String[] args) throws Exception {
-        Thread thread1 = new Thread(ReentrantLockLivelockDemo::concurrencyCheckTask1);
+        final Lock lock1 = new ReentrantLock();
+        final Lock lock2 = new ReentrantLock();
+
+        Thread thread1 = new Thread(new ConcurrencyCheckTask(1, lock1, lock2));
         thread1.start();
-        Thread thread2 = new Thread(ReentrantLockLivelockDemo::concurrencyCheckTask2);
+        Thread thread2 = new Thread(new ConcurrencyCheckTask(2, lock2, lock1));
         thread2.start();
     }
 
-    private static void concurrencyCheckTask1() {
-        System.out.println("Started concurrency check task 1");
-        int counter = 0;
+    private static class ConcurrencyCheckTask implements Runnable {
+        private final int id;
+        private final Lock lockFirst;
+        private final Lock lockSecond;
 
-        while (counter++ < 1_000) {
+        private ConcurrencyCheckTask(int id, Lock lockFirst, Lock lockSecond) {
+            this.id = id;
+            this.lockFirst = lockFirst;
+            this.lockSecond = lockSecond;
+        }
+
+        @Override
+        public void run() {
             try {
-                if (lock1.tryLock(10, TimeUnit.MILLISECONDS)) {
-                    System.out.println("Task 1 acquired lock 1");
-                    Thread.sleep(10);
-                    if (lock2.tryLock()) {
-                        System.out.println("Task 1 acquired lock 2");
-                    } else {
-                        System.err.println("Task 1 failed to acquire lock 2, releasing lock 1");
-                        lock1.unlock();
-                        continue;
-                    }
+                System.out.println("Started concurrency check task " + id);
+                int total = 100;
+                int occurTimes = 0;
+                for (int i = 0; i < total; i++) {
+                    if (!work()) occurTimes++;
+                }
+                if (occurTimes > 0) {
+                    System.err.printf("Fuck! No actual progress in %s of %s iterations of task %s.%n",
+                            occurTimes, total, id);
+                } else {
+                    System.out.printf("Emm... Actual progress in all %s iterations of task %s!%n", total, id);
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
-                break;
             }
-
-            break;
         }
 
-        System.err.printf("Fuck! No meaningful work done in %s iterations of task 1.%n", counter);
-        lock2.unlock();
-        lock1.unlock();
-    }
+        private boolean work() throws InterruptedException {
+            // simulate work before acquiring the first lock
+            Thread.sleep(2);
 
-    private static void concurrencyCheckTask2() {
-        System.out.println("Started concurrency check task 2");
-
-        int counter = 0;
-        while (counter++ < 1_000) {
+            if (!lockFirst.tryLock(5, TimeUnit.MILLISECONDS)) {
+                System.err.println("Task " + id + " failed to acquire the first lock, wasting this attempt's work");
+                return false;
+            }
             try {
-                if (lock2.tryLock(10, TimeUnit.MILLISECONDS)) {
-                    System.out.println("Task 2 acquired lock 2");
-                    Thread.sleep(10);
-                    if (lock1.tryLock()) {
-                        System.out.println("Task 2 acquired lock 1");
-                    } else {
-                        System.err.println("Task 2 failed to acquire lock 1, releasing lock 2");
-                        lock2.unlock();
-                        continue;
-                    }
+                // simulate work after acquiring the first lock
+                Thread.sleep(10);
+
+                if (!lockSecond.tryLock()) {
+                    System.out.println("Task " + id + " failed to acquire the second lock, wasting this attempt's work");
+                    return false;
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                break;
+                try {
+                    // simulate work after acquiring the second lock
+                    Thread.sleep(10);
+                } finally {
+                    lockSecond.unlock();
+                }
+            } finally {
+                lockFirst.unlock();
             }
-
-            break;
+            return true;
         }
-
-        System.err.printf("Fuck! No meaningful work done in %s iterations of task 2.%n", counter);
-        lock2.unlock();
-        lock1.unlock();
     }
 }

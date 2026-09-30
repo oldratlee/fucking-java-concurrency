@@ -2,41 +2,38 @@ package fucking.concurrency.demo;
 
 /**
  * @author Jerry Lee (oldratlee at gmail dot com)
+ * @see ReentrantLockLivelockDemo
  */
 @SuppressWarnings("InfiniteLoopStatement")
 public class SymmetricLockDeadlockDemo {
-    private static final Object lock1 = new Object();
-    private static final Object lock2 = new Object();
-
     public static void main(String[] args) throws Exception {
-        Thread thread1 = new Thread(new ConcurrencyCheckTask1());
+        final Object lock1 = new Object();
+        final Object lock2 = new Object();
+
+        Thread thread1 = new Thread(new ConcurrencyCheckTask(1, lock1, lock2));
         thread1.start();
-        Thread thread2 = new Thread(new ConcurrencyCheckTask2());
+        Thread thread2 = new Thread(new ConcurrencyCheckTask(2, lock2, lock1));
         thread2.start();
     }
 
-    private static class ConcurrencyCheckTask1 implements Runnable {
-        @Override
-        public void run() {
-            System.out.println("ConcurrencyCheckTask1 started!");
-            while (true) {
-                synchronized (lock1) {
-                    synchronized (lock2) {
-                        System.out.println("Hello1");
-                    }
-                }
-            }
-        }
-    }
+    private static class ConcurrencyCheckTask implements Runnable {
+        private final int id;
+        private final Object lockFirst;
+        private final Object lockSecond;
 
-    private static class ConcurrencyCheckTask2 implements Runnable {
+        private ConcurrencyCheckTask(int id, Object lockFirst, Object lockSecond) {
+            this.id = id;
+            this.lockFirst = lockFirst;
+            this.lockSecond = lockSecond;
+        }
+
         @Override
         public void run() {
-            System.out.println("ConcurrencyCheckTask2 started!");
+            System.out.println("ConcurrencyCheckTask" + id + " started!");
             while (true) {
-                synchronized (lock2) {
-                    synchronized (lock1) {
-                        System.out.println("Hello2");
+                synchronized (lockFirst) {
+                    synchronized (lockSecond) {
+                        System.out.println("Hello" + id);
                     }
                 }
             }

@@ -309,8 +309,9 @@ holding their own lock.
 ### Problem statement
 
 The threads release their own lock and immediately re-acquire it,
-denying the other thread a chance to acquire both locks. Since both
-threads keep executing but never make progress, this is a livelock.
+denying the other thread a chance to acquire both locks. The threads
+keep executing: an attempt wastes its work, and overall they make
+almost no actual progress. This is a livelock.
 
 ### Quick run
 
