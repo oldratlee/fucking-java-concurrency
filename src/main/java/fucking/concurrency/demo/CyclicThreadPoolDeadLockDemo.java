@@ -21,7 +21,7 @@ public class CyclicThreadPoolDeadLockDemo {
         }
     }
 
-    static void badCase() throws InterruptedException {
+    private static void badCase() throws InterruptedException {
         int poolSize = 16;
         ThreadPoolExecutor pool1 = new ThreadPoolExecutor(poolSize, poolSize,
                 0L, TimeUnit.MILLISECONDS,
@@ -54,7 +54,7 @@ public class CyclicThreadPoolDeadLockDemo {
         pool2.awaitTermination(20, TimeUnit.SECONDS);
     }
 
-    static void goodCase() throws InterruptedException {
+    private static void goodCase() throws InterruptedException {
         int poolSize = 16;
         ThreadPoolExecutor pool1 = new ThreadPoolExecutor(poolSize, poolSize,
                 0L, TimeUnit.MILLISECONDS,
@@ -94,7 +94,7 @@ public class CyclicThreadPoolDeadLockDemo {
         pool2.awaitTermination(20, TimeUnit.SECONDS);
     }
 
-    static <T> T getUnchecked(Future<T> future) {
+    private static <T> T getUnchecked(Future<T> future) {
         try {
             return future.get();
         } catch (Exception e) {

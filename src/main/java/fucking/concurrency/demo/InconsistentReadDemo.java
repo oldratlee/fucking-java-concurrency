@@ -4,7 +4,7 @@ package fucking.concurrency.demo;
  * @author Jerry Lee (oldratlee at gmail dot com)
  */
 public class InconsistentReadDemo {
-    int count = 1;
+    private int count = 1;
 
     @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) {

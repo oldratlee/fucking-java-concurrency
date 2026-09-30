@@ -22,8 +22,8 @@ public class InvalidCombinationStateDemo {
 
     private static class CombinationStatTask implements Runnable {
         // For a combination state, adding volatile does not solve the problem
-        volatile int state1;
-        volatile int state2;
+        private volatile int state1;
+        private volatile int state2;
 
         @Override
         public void run() {

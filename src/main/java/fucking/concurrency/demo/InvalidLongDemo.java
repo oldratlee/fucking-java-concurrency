@@ -4,7 +4,7 @@ package fucking.concurrency.demo;
  * @author Jerry Lee(oldratlee at gmail dot com)
  */
 public class InvalidLongDemo {
-    long count = 0;
+    private long count = 0;
 
     @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) {

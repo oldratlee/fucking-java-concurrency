@@ -10,16 +10,16 @@ public class FinalInitialDemo {
     private boolean flag;
     private FinalInitialDemo demo;
 
-    public FinalInitialDemo() {
+    private FinalInitialDemo() {
         a = 1;
         flag = true;
     }
 
-    public void writer() {
+    private void writer() {
         demo = new FinalInitialDemo();
     }
 
-    public void reader() {
+    private void reader() {
         if (flag) {
             int i = a * a;
             if (i == 0) {

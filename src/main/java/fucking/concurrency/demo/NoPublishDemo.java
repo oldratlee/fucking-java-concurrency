@@ -6,7 +6,7 @@ package fucking.concurrency.demo;
  * @author Jerry Lee (oldratlee at gmail dot com)
  */
 public class NoPublishDemo {
-    boolean stop = false;
+    private boolean stop = false;
 
     public static void main(String[] args) throws Exception {
         // LoadMaker.makeLoad();

@@ -9,7 +9,7 @@ import java.util.Random;
  * @see <a href="http://coolshell.cn/articles/9606.html">Infinite loop of Java HashMap</a> by <a href="http://github.com/haoel">@haoel</a>
  */
 public class HashMapHangDemo {
-    final Map<Integer, Object> holder = new HashMap<>();
+    private final Map<Integer, Object> holder = new HashMap<>();
 
     @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) {

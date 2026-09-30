@@ -8,9 +8,9 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * @author Jerry Lee (oldratlee at gmail dot com)
  */
 public class SynchronizationOnMutableFieldDemo {
-    static final int ADD_COUNT = 10000;
+    private static final int ADD_COUNT = 10000;
 
-    static class Listener {
+    private static class Listener {
         // stub class
     }
 
@@ -40,7 +40,7 @@ public class SynchronizationOnMutableFieldDemo {
     }
 
     @SuppressWarnings("SynchronizeOnNonFinalField")
-    public void addListener(Listener listener) {
+    private void addListener(Listener listener) {
         synchronized (listeners) {
             List<Listener> results = new ArrayList<>(listeners);
             results.add(listener);

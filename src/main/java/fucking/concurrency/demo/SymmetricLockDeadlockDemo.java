@@ -4,8 +4,8 @@ package fucking.concurrency.demo;
  * @author Jerry Lee (oldratlee at gmail dot com)
  */
 public class SymmetricLockDeadlockDemo {
-    static final Object lock1 = new Object();
-    static final Object lock2 = new Object();
+    private static final Object lock1 = new Object();
+    private static final Object lock2 = new Object();
 
     public static void main(String[] args) throws Exception {
         Thread thread1 = new Thread(new ConcurrencyCheckTask1());
