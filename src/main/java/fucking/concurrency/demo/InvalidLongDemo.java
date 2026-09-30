@@ -6,22 +6,19 @@ package fucking.concurrency.demo;
 public class InvalidLongDemo {
     private static long count = 0;
 
-    @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) {
         // LoadMaker.makeLoad();
 
         new Thread(new ConcurrencyCheckTask()).start();
 
         for (int i = 0; ; i++) {
-            @SuppressWarnings("UnnecessaryLocalVariable")
-            final long x = i;
+            long x = i;
             count = x << 32 | x;
         }
     }
 
     private static class ConcurrencyCheckTask implements Runnable {
         @Override
-        @SuppressWarnings("InfiniteLoopStatement")
         public void run() {
             int occurTimes = 0;
             for (int i = 0; ; i++) {

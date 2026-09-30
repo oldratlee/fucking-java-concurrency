@@ -17,7 +17,6 @@ public class InconsistentReadDemo {
 
     private static class ConcurrencyCheckTask implements Runnable {
         @Override
-        @SuppressWarnings({"InfiniteLoopStatement", "ConstantConditions"})
         public void run() {
             long occurTimes = 0;
 

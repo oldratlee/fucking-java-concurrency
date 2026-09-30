@@ -6,12 +6,12 @@ import java.util.Random;
 
 /**
  * @author Jerry Lee (oldratlee at gmail dot com)
- * @see <a href="http://coolshell.cn/articles/9606.html">Infinite loop of Java HashMap</a> by <a href="http://github.com/haoel">@haoel</a>
+ * @see <a href="http://coolshell.cn/articles/9606.html">Infinite loop of Java HashMap</a>
+ * by <a href="http://github.com/haoel">@haoel</a>
  */
 public class HashMapHangDemo {
     private static final Map<Integer, Object> holder = new HashMap<>();
 
-    @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) {
         for (int i = 0; i < 100; i++) {
             holder.put(i, null);
@@ -23,7 +23,7 @@ public class HashMapHangDemo {
 
         System.out.println("Start the get loop in main!");
         for (int i = 0; ; ++i) {
-            for (int key = 0; key < 10000; ++key) {
+            for (int key = 0; key < 10_000; ++key) {
                 holder.get(key);
 
                 // If the HashMap hangs, the following output will not appear again.
