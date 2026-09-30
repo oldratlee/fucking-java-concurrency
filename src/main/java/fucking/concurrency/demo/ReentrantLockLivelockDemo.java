@@ -30,7 +30,7 @@ public class ReentrantLockLivelockDemo {
                     if (lock2.tryLock()) {
                         System.out.println("Task 1 acquired lock 2");
                     } else {
-                        System.out.println("Task 1 failed to acquire lock 2, releasing lock 1");
+                        System.err.println("Task 1 failed to acquire lock 2, releasing lock 1");
                         lock1.unlock();
                         continue;
                     }
@@ -60,7 +60,7 @@ public class ReentrantLockLivelockDemo {
                     if (lock1.tryLock()) {
                         System.out.println("Task 2 acquired lock 1");
                     } else {
-                        System.out.println("Task 2 failed to acquire lock 1, releasing lock 2");
+                        System.err.println("Task 2 failed to acquire lock 1, releasing lock 2");
                         lock2.unlock();
                         continue;
                     }
