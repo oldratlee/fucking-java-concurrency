@@ -4,7 +4,7 @@ package fucking.concurrency.demo;
  * @author Jerry Lee (oldratlee at gmail dot com)
  */
 public class InconsistentReadDemo {
-    private static int count = 1;
+    private static long count = 1;
 
     @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) {
@@ -19,11 +19,12 @@ public class InconsistentReadDemo {
         @Override
         @SuppressWarnings({"InfiniteLoopStatement", "ConstantConditions"})
         public void run() {
-            int occurTimes = 0;
-            for (int i = 0; ; i++) {
+            long occurTimes = 0;
+
+            for (long i = 0; ; i++) {
                 // 2 consecutive reads in the same thread
-                int read1 = count;
-                int read2 = count;
+                long read1 = count;
+                long read2 = count;
                 if (read1 != read2) {
                     occurTimes++;
                     // On my dev machine,
