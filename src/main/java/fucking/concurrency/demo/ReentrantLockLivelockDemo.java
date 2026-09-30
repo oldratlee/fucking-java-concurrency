@@ -22,11 +22,11 @@ public class ReentrantLockLivelockDemo {
         System.out.println("Started concurrency check task 1");
         int counter = 0;
 
-        while (counter++ < 10_000) {
+        while (counter++ < 1_000) {
             try {
-                if (lock1.tryLock(50, TimeUnit.MILLISECONDS)) {
+                if (lock1.tryLock(10, TimeUnit.MILLISECONDS)) {
                     System.out.println("Task 1 acquired lock 1");
-                    Thread.sleep(50);
+                    Thread.sleep(10);
                     if (lock2.tryLock()) {
                         System.out.println("Task 1 acquired lock 2");
                     } else {
@@ -52,11 +52,11 @@ public class ReentrantLockLivelockDemo {
         System.out.println("Started concurrency check task 2");
 
         int counter = 0;
-        while (counter++ < 10_000) {
+        while (counter++ < 1_000) {
             try {
-                if (lock2.tryLock(50, TimeUnit.MILLISECONDS)) {
+                if (lock2.tryLock(10, TimeUnit.MILLISECONDS)) {
                     System.out.println("Task 2 acquired lock 2");
-                    Thread.sleep(50);
+                    Thread.sleep(10);
                     if (lock1.tryLock()) {
                         System.out.println("Task 2 acquired lock 1");
                     } else {
