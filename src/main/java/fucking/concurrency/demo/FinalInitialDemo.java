@@ -3,45 +3,48 @@ package fucking.concurrency.demo;
 
 /**
  * @author hyy (hjlbupt at 163 dot com)
+ * @author Jerry Lee (oldratlee at gmail dot com)
  */
 public class FinalInitialDemo {
+    public static void main(String[] args) throws Exception {
+        DataProvider dataProvider = new DataProvider();
+        new Thread(dataProvider).start();
 
-    private int a;
-    private boolean flag;
-    private FinalInitialDemo demo;
-
-    private FinalInitialDemo() {
-        a = 1;
-        flag = true;
+        for (long i = 0; ; i++) {
+            final Data data = dataProvider.data;
+            if (data.isFieldDefaultValueNotInitValue()) {
+                System.err.println("Fuck! instruction reordering occurred.");
+            }
+            if (i % 1_000_000_000 == 0) System.out.printf("read  %,15d times%n", i + 1);
+        }
     }
 
-    private void writer() {
-        demo = new FinalInitialDemo();
-    }
+    private static class DataProvider implements Runnable {
+        Data data = new Data();
 
-    private void reader() {
-        if (flag) {
-            int i = a * a;
-            if (i == 0) {
-                // On my dev machine, variable initialization always succeeds.
-                // To solve this problem, make the `a` and `flag` fields final.
-                System.out.println("Fuck! instruction reordering occurred.");
+        @Override
+        public void run() {
+            for (long i = 0; ; i++) {
+                data = new Data();
+
+                if (i % 100_000_000 == 0) System.out.printf("write %,15d times%n", i + 1);
             }
         }
     }
 
-    @SuppressWarnings("InfiniteLoopStatement")
-    public static void main(String[] args) throws Exception {
-        while (true) {
-            FinalInitialDemo demo = new FinalInitialDemo();
-            Thread threadA = new Thread(demo::writer);
-            Thread threadB = new Thread(demo::reader);
+    private static class Data {
+        private int no;
+        private boolean flag;
+        private int[] array1;
 
-            threadA.start();
-            threadB.start();
+        public Data() {
+            this.no = 42;
+            this.flag = true;
+            array1 = new int[10];
+        }
 
-            threadA.join();
-            threadB.join();
+        boolean isFieldDefaultValueNotInitValue() {
+            return no == 0 || !flag || array1 == null;
         }
     }
 }
