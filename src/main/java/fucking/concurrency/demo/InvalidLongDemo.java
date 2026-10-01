@@ -12,7 +12,10 @@ public class InvalidLongDemo {
         new Thread(new ConcurrencyCheckTask()).start();
 
         for (int i = 0; ; i++) {
-            long x = i;
+            // `& 0xFFFFFFFFL` keeps the low 32 bits only.
+            // A negative `i` sign-extends when widened to `long`,
+            // and `x << 32 | x` would then write unequal halves.
+            long x = i & 0xFFFFFFFFL;
             count = x << 32 | x;
         }
     }
